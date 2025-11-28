@@ -1,0 +1,45 @@
+---
+name: Christos Barbas
+image: /images/Christos Barbas Photo Kasia Stanczyk-1.png
+headline: |-
+  Ney & wind instruments
+  in traditional, classical,
+   & new compositions
+description: >-
+  Christos Barbas is a versatile Greek multi-instrumentalist and composer known
+  for his creative and wide-ranging musical approach. He began his musical
+  studies early, learning recorder, piano, baroque music, harmony, and
+  counterpoint, and completed his formal Western music training in 2002. He
+  later studied musicology and ethnomusicology at the Aristotle University of
+  Thessaloniki and SOAS in London. Since 2003 he has focused on the ney, as well
+  as Sufi and classical Ottoman music, studying with leading performers in
+  Greece, Bulgaria, and Turkey, while also exploring instruments such as the
+  kaval, bansuri, Irish whistles, and various bagpipes across traditions from
+  folk music to jazz and free improvisation.
+
+
+  Barbas is especially interested in a creative engagement with older sacred and
+  popular musical traditions, valuing their timelessness and expressive
+  possibilities over strict notions of authenticity. He communicates this
+  through his performances, his compositions, interdisciplinary collaborations,
+  and his work as a teacher.
+
+
+  He has written music for a wide range of settings, including dance, theatre,
+  film, and modal ensembles, and has released nine albums of original work with
+  groups such as Yeden, Neda, Magnanimus Trio, and collaborations with Murat
+  Aydemir, Peppe Frana, and Efrén López. Alongside his own projects, he has
+  worked with prominent artists including Ross Daly, Zohar Fresco, L’Ham de Foc,
+  Evgenios Voulgaris, Maria Farantouri, Anja Lechner, and Björn Meyer,
+  performing internationally and recording widely in the field of contemporary
+  modal music for labels such as An Music, Felmay, and ECM.
+
+
+  Barbas has taught ney, kaval, improvisation, and modal music composition at
+  institutions in Arta and Thessaloniki, as well as at the Labyrinth Musical
+  Workshop in Crete and cultural centers throughout Europe. He is also the
+  artistic director of Labyrinth Catalunya.
+videos:
+  - title: The Sea
+    id: https://youtu.be/oQCmpC1QPUU?si=_6YmgFPgwxMI4WEZ
+---
