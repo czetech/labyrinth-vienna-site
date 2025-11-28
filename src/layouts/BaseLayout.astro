@@ -1,0 +1,66 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "~/styles/global.css";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+
+const { strictHeight = false } = Astro.props;
+
+const navItems = [
+  {
+    title: "Zoznam",
+    href: "/zoznam/",
+  },
+  {
+    title: "Miesta",
+    href: "/miesta",
+  },
+  {
+    title: "Návody",
+    href: "/navody",
+    test: "^\/(?:navody|zivotne-situacie)(?:\/.*)?$",
+  },
+  {
+    title: "Kontakt",
+    href: "/kontakt",
+  },
+  {
+    title: "Chcem podporiť",
+    href: "/podpora",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Modrá hliadka" />
+    <meta name="application-name" content="Kompasio" />
+    <meta
+      name="description"
+      content="Kompasio je portál pre autistov resp. osoby s poruchou autistického spektra (PAS)."
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content="autizmus, pas" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Kompasio</title>
+    <ClientRouter fallback="none" />
+  </head>
+  <body class="text-space-blue bg-shuttle-white">
+    <div
+      class="flex min-h-dvh flex-col"
+      class:list={{ "min-h-dvh": !strictHeight, "h-dvh": strictHeight }}
+    >
+      <Header />
+      <main class="flex grow flex-col items-center">
+        <slot />
+      </main>
+    </div>
+    <Footer navItems={navItems} />
+  </body>
+</html>

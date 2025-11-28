@@ -1,0 +1,27 @@
+media:
+  - name: images
+    label: Images
+    input: src/assets/images
+    output: /images
+    extensions:
+      - apng
+      - avif
+      - gif
+      - jpeg
+      - jpg
+      - png
+      - svg
+      - webp
+content:
+- name: Teachers
+  label: Teachers
+  type: collection
+  path: content/teachers
+  fields:
+  - name: name
+    label: Name
+    description: Teacher name.
+    type: text
+    required: true
+settings:
+  hide: true

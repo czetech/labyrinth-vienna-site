@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
+
+@theme {
+  --animate-draw: 1s 0.25s ease-in-out forwards draw;
+  --animate-spring: 2s 0.5s ease-out spring;
+
+  /*
+   * Colors based on the visual identity document: 
+   * https://drive.google.com/file/d/1Gtw-TQNFnPbmCOwDD76a69UnNhRuqngU/view
+   * Colors have been adapted for web use.
+   * For selected colors, lighter and darker variants are also provided.
+   */
+  /*--color-frontier-gray: hsl(0, 1%, 73%);*/
+  --color-frontier-gray: hsl(0, 1%, 46%);
+  /*--color-red-orange: hsl(19, 100%, 50%);*/
+  --color-red-orange: hsl(19, 100%, 41%);
+  --color-red-orange-dark: hsl(19, 100%, 40%);
+  --color-red-orange-light: hsl(19, 100%, 60%);
+  --color-shuttle-white: hsl(0, 0%, 100%);
+  --color-shuttle-white-dark: hsl(0, 0%, 95%);
+  --color-shuttle-white-light: hsl(0, 0%, 100%);
+  --color-space-blue: hsl(210, 88%, 13%);
+  --color-vibrant-blue: hsl(240, 100%, 50%);
+  --color-vibrant-blue-dark: hsl(240, 100%, 40%);
+  --color-vibrant-blue-light: hsl(240, 100%, 60%);
+
+  --font-sans: "Poppins", sans-serif;
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes spring {
+    25% {
+      transform: translateX(var(--spring-shift)) scaleX(1.01);
+      opacity: 0.95;
+    }
+    45% {
+      transform: translateX(calc(var(--spring-shift) * -0.33)) scaleX(0.995);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(calc(var(--spring-shift) * 0.15)) scaleX(1.005);
+      opacity: 0.98;
+    }
+    85% {
+      transform: translateX(calc(var(--spring-shift) * -0.05));
+      opacity: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .draw path {
+    stroke-dasharray: var(--path-length);
+    stroke-dashoffset: calc(var(--path-length) * -1);
+  }
+}
+
+.gradient {
+  /* Solid color for browser compatibility (gradient not work on FF 125) */
+  @apply bg-vibrant-blue from-vibrant-blue-dark via-vibrant-blue to-vibrant-blue-light bg-linear-to-r;
+}
+
+.markdown {
+  a {
+    @apply text-vibrant-blue-dark hover:underline;
+  }
+
+  p {
+    @apply mb-2 md:mb-3;
+  }
+
+  h3 {
+    @apply mb-3 text-lg font-semibold md:mb-4 md:text-xl;
+  }
+
+  ul {
+    @apply mb-3 list-outside list-disc pl-6 md:mb-4 md:pl-7;
+  }
+
+  ol {
+    @apply mb-3 list-outside list-decimal pl-6 md:mb-4 md:pl-8;
+  }
+
+  li > p {
+    @apply mb-1;
+  }
+
+  blockquote {
+    @apply border-frontier-gray my-4 border-l-4 pl-3 italic md:my-6 md:pl-4;
+  }
+
+  table {
+    @apply my-4 w-full md:my-6;
+  }
+
+  th,
+  td {
+    @apply border-frontier-gray border p-2 text-left md:p-3;
+  }
+
+  thead {
+    @apply bg-shuttle-white-dark;
+  }
+
+  th {
+    @apply font-semibold;
+  }
+
+  code {
+    @apply bg-shuttle-white-dark rounded px-2 py-1 text-sm;
+  }
+
+  img {
+    @apply my-4 h-auto max-w-full md:my-6;
+  }
+}
+
+.markdown-scrollable {
+  @apply overflow-x-auto;
+}
+
+.algolia-match {
+  @apply bg-red-orange text-shuttle-white not-italic;
+}
