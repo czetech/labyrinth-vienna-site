@@ -1,0 +1,41 @@
+---
+name: Bernhard Schimpelsberger
+image: /images/Bernhard-Schimmpelsbergerc-Gui-Sussekind1.jpg
+headline: "Integrating Indian Rhythmic Structures into Western Performance Practices "
+description: >-
+  Bernhard Schimpelsberger is an Austrian percussionist and composer known for
+  his innovative approach to rhythm. His deep study of Indian classical rhythmic
+  systems and his ability to translate them into Western musical contexts have
+  shaped his distinctive artistic voice. With finely tuned musical sensitivity
+  and technical mastery, he has become a sought-after collaborator for leading
+  artists around the world.
+
+
+  Praised as “one of the most technically gifted and tasteful players” by
+  Drummer Magazine UK, Schimpelsberger performs on a unique, multi-layered drum
+  kit that allows him to create richly textured, melodic soundscapes. Critics
+  describe his music as an intricate blend of colors, elements, virtuosity, and
+  unexpected turns.
+
+
+  He trained under renowned Indian percussion masters Suresh Talwalkar and
+  Trilok Gurtu, and his collaborations with Anoushka Shankar, Akram Khan, and
+  Nitin Sawhney further developed a drumming style reminiscent of a tabla
+  virtuoso. His musical curiosity has led him to work with artists such as
+  flamenco dancer Israel Galván, Cuban percussion ensemble Osain del Monte, and
+  Brazilian guitarist Yamandu Costa. He currently performs as a guest soloist
+  with South African cellist Abel Selaocoe and with orchestras internationally.
+
+
+  His audio-visual project _Rhythm Diaries_, documenting his travels and
+  collaborations in Brazil, India, South Africa, and across Europe, has received
+  worldwide acclaim and multiple awards.
+
+
+  Schimpelsberger’s compositions have been featured at Beethovenfest Bonn, the
+  Rowing World Cup Championships in Ottensheim/Linz, and performed by ensembles
+  such as the Britten Sinfonia and Malta’s National Dance Company.
+videos:
+  - title: Konnakol, Tukra and Drum Laggi | Cross-cultural Indian Rhythm
+    id: https://www.youtube.com/watch?v=ve98rXnpg_Y
+---
