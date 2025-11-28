@@ -23,5 +23,17 @@ content:
     description: Teacher name.
     type: text
     required: true
+  - name: headline
+    label: Headline
+    description: Teacher headline.
+    type: text
+    required: true
+  - name: description
+    label: Description
+    description: Teacher description.
+    type: rich-text-full
+    required: true
+    options:
+      media: images
 settings:
   hide: true
