@@ -1,5 +1,6 @@
 ---
 name: Tcha Limberger
+image: /images/5.Bernhard_Martina Lajczak.jpg
 headline: Transylvanian Gypsy Music
 description: >-
   Tcha Limberger is a distinguished multi-instrumentalist, composer, and
@@ -32,4 +33,7 @@ description: >-
   music. His current projects include I Silenti with Fabrizio Cassol, the
   all-string swing ensemble Les Violons de Bruxelles, and The Viper Club, which
   celebrates the music of Stuff Smith.
+videos:
+  - title: " Transylvanian Folk Music - Gypsy Violin (Lesson Excerpt)"
+    id: https://youtu.be/0M16447BSZI?si=dUgZIMXonuXvdsof
 ---
