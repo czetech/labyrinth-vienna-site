@@ -23,6 +23,13 @@ content:
     description: Teacher name.
     type: text
     required: true
+  - name: image
+    label: Image
+    description: Teacher image in original dimensions with a minimum size of TODOpx.
+    type: image
+    required: true
+    options:
+      media: images
   - name: headline
     label: Headline
     description: Teacher headline.
@@ -34,6 +41,25 @@ content:
     type: rich-text-full
     required: true
     options:
-      media: images
+      media: false
+  - name: videos
+    label: Videos
+    description: Teacher YouTube videos.
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{fields.title}"
+    fields:
+    - name: title
+      label: Title
+      description: Video title.
+      type: text
+      required: true
+    - name: id
+      label: ID
+      description: YouTube video ID.
+      type: text
+      required: true
 settings:
   hide: true
