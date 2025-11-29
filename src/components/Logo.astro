@@ -1,0 +1,9 @@
+---
+import SvgLogo from "~/assets/labyrinth-vienna-logo.svg";
+
+const { class: className } = Astro.props;
+---
+
+<a href="/" class={className} aria-label="Kompasio">
+  <SvgLogo fill="currentColor" class="h-full w-full" />
+</a>
