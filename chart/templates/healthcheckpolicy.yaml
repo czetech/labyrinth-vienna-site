@@ -8,7 +8,7 @@ spec:
     config:
       type: HTTP
       httpHealthCheck:
-        requestPath: /navody
+        requestPath: /
   targetRef:
     group: ""
     kind: Service
