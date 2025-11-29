@@ -13,7 +13,7 @@ spec:
     nodePort: {{ toYaml .Values.http.service.nodePort }}
     port: {{ toYaml .Values.http.service.port }}
     protocol: TCP
-    targetPort: http
+    targetPort: app
   selector:
     {{- include "labyrinth-vienna-site.selectorLabels" . | nindent 4 }}
     app.kubernetes.io/component: http
