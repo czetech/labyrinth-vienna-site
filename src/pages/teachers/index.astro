@@ -1,7 +1,15 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import path from "pathe";
+
+const teachers = await getCollection("teachers");
 ---
 
 <BaseLayout>
-
+  {
+    teachers.map((teacher) => (
+      <a href={path.join("/teachers", teacher.id)}><p class="text-xl my-2">{teacher.data.name}</p></a>
+    ))
+  }
 </BaseLayout>
