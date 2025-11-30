@@ -1,0 +1,26 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import path from "pathe";
+import ContentImage from "~/components/ContentImage.astro";
+import Markdown from "~/components/Markdown.astro";
+
+const { teacher } = Astro.props;
+
+export const getStaticPaths = async () => {
+  return (await getCollection("teachers")).map((teacher) => ({
+    params: { name: teacher.id },
+    props: { teacher },
+  }));
+};
+---
+
+<BaseLayout>
+  <div class="flex flex-col md:flex-row gap-x-16 gap-y-8 md:items-start items-center">
+  <ContentImage path={teacher.data.image} class="mb-3 md:rounded-2xl w-full md:max-w-72 max-h-[50dvh] object-cover" />
+    <article class="max-w-144 mx-8 md:mx-0">
+      <h1 class="text-4xl mb-4">{teacher.data.name}</h1>
+      <div class="text-lg"><Markdown content={teacher.data.description} /></div>
+    </article>
+  </div>
+</BaseLayout>

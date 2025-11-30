@@ -23,11 +23,9 @@ import Header from "~/components/Header.astro";
     <ClientRouter fallback="none" />
   </head>
   <body class="text-black bg-ivory-soft">
-    <div
-      class="flex min-h-dvh flex-col font-serif"
-    >
+    <div class="flex min-h-dvh flex-col font-serif">
       <Header />
-      <main class="flex grow flex-col items-center h-[calc(100dvh_-_10rem)] justify-center">
+      <main class="flex grow flex-col items-center">
         <slot />
       </main>
     </div>
