@@ -36,6 +36,7 @@ content:
     options:
       collection: teachers
       value: "{id}"
+      label: "{name}"
   - name: body
     label: Description
     description: Seminar description.
