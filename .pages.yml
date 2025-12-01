@@ -35,7 +35,7 @@ content:
     required: true
     options:
       collection: teachers
-      value: "{id}"
+      value: "{name}"
   - name: body
     label: Description
     description: Seminar description.
