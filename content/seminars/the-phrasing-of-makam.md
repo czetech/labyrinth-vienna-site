@@ -1,5 +1,5 @@
 ---
 mainTitle: The phrasing of makam
-teacher: ross-daly
+teacher: ross-daly.yaml
 ---
 TODO
