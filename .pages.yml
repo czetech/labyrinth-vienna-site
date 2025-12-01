@@ -41,7 +41,7 @@ content:
     description: Seminar description.
     type: rich-text-full
     required: true
-  filename: "{primary}.yaml"
+  #filename: "{primary}.yaml"
 - name: teachers
   label: Teachers
   type: collection
