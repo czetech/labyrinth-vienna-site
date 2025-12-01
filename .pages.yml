@@ -35,12 +35,13 @@ content:
     required: true
     options:
       collection: teachers
-      search: name
+      value: "{id}"
   - name: body
     label: Description
     description: Seminar description.
     type: rich-text-full
     required: true
+  filename: "{primary}.yaml"
 - name: teachers
   label: Teachers
   type: collection
