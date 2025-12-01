@@ -13,7 +13,35 @@ media:
       - svg
       - webp
 content:
-- name: Teachers
+- name: seminars
+  label: Seminars
+  type: collection
+  path: content/seminars
+  fields:
+  - name: mainTitle
+    label: Main Title
+    description: Seminar main title.
+    type: text
+    required: true
+  - name: additionalTitle
+    label: Additional Title
+    description:
+      Seminar additional title as a smooth continuation of the main title.
+    type: text
+  - name: teacher
+    label: Teacher
+    description: Seminar teacher.
+    type: reference
+    required: true
+    options:
+      collection: teachers
+      search: name
+  - name: body
+    label: Description
+    description: Seminar description.
+    type: rich-text-full
+    required: true
+- name: teachers
   label: Teachers
   type: collection
   path: content/teachers
