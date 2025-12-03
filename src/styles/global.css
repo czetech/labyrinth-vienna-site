@@ -104,3 +104,16 @@
 .markdown-scrollable {
   @apply overflow-x-auto;
 }
+
+@media print {
+  .border {
+    border-color: black !important;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

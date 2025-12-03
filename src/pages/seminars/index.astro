@@ -1,0 +1,40 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import path from "pathe";
+import ContentImage from "~/components/ContentImage.astro"; 
+
+const seminars = await getCollection("seminars");
+
+const seminarsTeachers = await Promise.all(
+  seminars.map(async (seminar) => {
+    const teacher = await getEntry("teachers", path.basename(seminar.data.teacher, ".yaml"));
+    return {
+      seminar: seminar,
+      teacher: teacher
+    };
+  })
+);
+---
+
+<BaseLayout>
+  <h1 class="capitalize text-4xl">Seminars</h1>
+  <div class="px-4">
+  {
+  seminarsTeachers.map(({seminar, teacher}, index) => (
+      <div>
+        <a href={path.join("/seminars", seminar.id)} class="p-2">
+          <div class="grid gap-x-4 items-center" class:list={[index % 2 && 0 ? "grid-cols-[2fr_1fr_1fr]" : "grid-cols-[1fr_2fr_1fr]"]}>
+            <ContentImage path={teacher.data.image} class="object-cover rounded-lg" class:list={[{"order-last": index % 2 && 0}]} />
+            <div>
+              <div class="uppercase">{seminar.data.mainTitle}</div>
+              <div>{seminar.data.additionalTitle}</div>
+            </div>
+            <div>{teacher.data.name}</div>
+          </div>
+        </a>
+      </div>
+    ))
+  }
+  </div>  
+</BaseLayout>
