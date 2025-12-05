@@ -17,23 +17,52 @@ const seminarsTeachers = await Promise.all(
 );
 ---
 
+<style>
+  @reference "~/styles/global.css";
+
+  .row {
+    @apply grid relative py-3;
+  }
+
+  .row:nth-child(odd) {
+    grid-template-columns:
+      [col-image] minmax(0, 1fr)
+      [col-seminar] minmax(0, 2fr)
+      [col-teacher] minmax(0, 1fr);
+  }
+
+  .row:nth-child(even) {
+    grid-template-columns:
+      [col-seminar] minmax(0, 2fr)
+      [col-teacher] minmax(0, 1fr)
+      [col-image] minmax(0, 1fr);
+  }
+
+  .row:not(:last-child) {
+  }
+
+  .row:not(:last-child)::after {
+    @apply w-[calc(100%-32px)] h-0.25 absolute content-[''] bg-ivory-solid bottom-0 translate-x-4;
+  }
+
+  .column-name::after {
+    @apply h-4/5 w-0.25 content-[''] absolute bg-ivory-solid top-1/2 right-2.5 -translate-y-1/2 opacity-50;
+  }
+</style>
+
 <BaseLayout>
-  <h1 class="capitalize text-4xl">Seminars</h1>
-  <div class="px-4">
+  <h1 class="capitalize text-3xl">Seminars</h1>
+  <div class="md:hidden">
   {
-  seminarsTeachers.map(({seminar, teacher}, index) => (
-      <div>
-        <a href={path.join("/seminars", seminar.id)} class="p-2">
-          <div class="grid gap-x-4 items-center" class:list={[index % 2 && 0 ? "grid-cols-[2fr_1fr_1fr]" : "grid-cols-[1fr_2fr_1fr]"]}>
-            <ContentImage path={teacher.data.image} class="object-cover rounded-lg" class:list={[{"order-last": index % 2 && 0}]} />
-            <div>
-              <div class="uppercase">{seminar.data.mainTitle}</div>
-              <div>{seminar.data.additionalTitle}</div>
-            </div>
-            <div>{teacher.data.name}</div>
-          </div>
-        </a>
-      </div>
+  seminarsTeachers.reverse().map(({seminar, teacher}, index) => (
+      <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory row items-center text-sm px-4">
+        <ContentImage path={teacher.data.image} class="object-cover rounded-lg aspect-square w-full max-w-24"  style="grid-area: col-image;" />
+        <div class="text-right column-name relative pl-2 pr-6" style="grid-area: col-seminar;">
+          <div class="uppercase">{seminar.data.mainTitle}</div>
+          <div>{seminar.data.additionalTitle}</div>
+        </div>
+        <div class="break-words hyphens-auto" lang="de" style="grid-area: col-teacher;">{teacher.data.name}</div>
+      </a>
     ))
   }
   </div>  
