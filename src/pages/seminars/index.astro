@@ -55,7 +55,7 @@ const seminarsTeachers = await Promise.all(
   <div class="md:hidden">
   {
   seminarsTeachers.reverse().map(({seminar, teacher}, index) => (
-      <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory row items-center text-sm px-4">
+      <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory focus:bg-ivory row items-center px-4">
         <ContentImage path={teacher.data.image} class="object-cover rounded-lg aspect-square w-full max-w-24"  style="grid-area: col-image;" />
         <div class="text-right column-name relative pl-2 pr-6" style="grid-area: col-seminar;">
           <div class="uppercase">{seminar.data.mainTitle}</div>
