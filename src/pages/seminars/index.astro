@@ -22,20 +22,16 @@ const seminarsTeachers = await Promise.all(
 
   .row {
     @apply grid relative py-4;
+  }
+
+  .row:nth-child(odd) {
     grid-template-columns:
       [col-image] minmax(0, 1fr)
       [col-seminar] minmax(0, 2fr)
       [col-teacher] minmax(0, 1fr);
   }
 
-  .row:nth-child(odd1) {
-    grid-template-columns:
-      [col-image] minmax(0, 1fr)
-      [col-seminar] minmax(0, 2fr)
-      [col-teacher] minmax(0, 1fr);
-  }
-
-  .row:nth-child(even1) {
+  .row:nth-child(even) {
     grid-template-columns:
       [col-seminar] minmax(0, 2fr)
       [col-teacher] minmax(0, 1fr)
