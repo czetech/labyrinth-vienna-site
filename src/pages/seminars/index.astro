@@ -2,18 +2,21 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 import path from "pathe";
-import ContentImage from "~/components/ContentImage.astro"; 
+import ContentImage from "~/components/ContentImage.astro";
 
 const seminars = await getCollection("seminars");
 
 const seminarsTeachers = await Promise.all(
   seminars.map(async (seminar) => {
-    const teacher = await getEntry("teachers", path.basename(seminar.data.teacher, ".yaml"));
+    const teacher = await getEntry(
+      "teachers",
+      path.basename(seminar.data.teacher, ".yaml"),
+    );
     return {
       seminar: seminar,
-      teacher: teacher
+      teacher: teacher,
     };
-  })
+  }),
 );
 ---
 
@@ -34,18 +37,8 @@ const seminarsTeachers = await Promise.all(
       [col-image] minmax(0, 1fr);
   }
 
-  .row:not(:last-child)::after {
-    @apply w-[calc(100%-32px)] h-0.25 absolute content-[''] bg-ivory-solid bottom-0 translate-x-4;
-  }
-
-  .col-seminar::after {
-    @apply h-4/5 w-0.25 content-[''] absolute bg-ivory-solid top-1/2 right-2.5 -translate-y-1/2 opacity-50;
-  }
-
-  @media (width >= 48rem) {
+  @media (width >= 64rem) {
     .row:nth-child(odd) {
-      --direction: 1;
-
       grid-template-columns:
         [col-image] 0
         [col-seminar] minmax(0, 2fr)
@@ -53,8 +46,6 @@ const seminarsTeachers = await Promise.all(
     }
 
     .row:nth-child(even) {
-      --direction: -1;
-
       grid-template-columns:
         [col-seminar] minmax(0, 2fr)
         [col-teacher] minmax(0, 1fr)
@@ -64,21 +55,52 @@ const seminarsTeachers = await Promise.all(
 </style>
 
 <BaseLayout>
-  <h1 class="capitalize text-3xl">Seminars</h1>
+  <h1 class="text-4xl capitalize mb-4 lg:mb-8">Seminars</h1>
   <div>
-  {
-  seminarsTeachers.reverse().map(({seminar, teacher}) => (
-  <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory focus:bg-ivory row items-center px-4 grid relative py-4 md:text-lg overflow-visible md:min-h-24 md:max-w-128 content-center group">
-        <div class="col-image md:absolute md:group-hover:translate-x-[calc(8*var(--direction)*var(--spacing))] group-hover:translate-x-[calc(8*var(--direction)*var(--spacing))] md:group-hover:scale-110 duration-2000 group-odd:right-16 group-even:left-16" style="grid-area: col-image;">
-          <ContentImage path={teacher.data.image} class="object-cover rounded-lg aspect-square w-full max-w-24 md:w-32 md:h-32 md:max-w-none" />
-        </div>
-        <div class="text-right col-seminar relative pl-2 pr-6" style="grid-area: col-seminar;">
-          <div class="uppercase">{seminar.data.mainTitle}</div>
-          <div>{seminar.data.additionalTitle}</div>
-        </div>
-        <div class="break-words hyphens-auto" lang="de" style="grid-area: col-teacher;">{teacher.data.name}</div>
-      </a>
-    ))
-  }
-  </div>  
+    {
+      seminarsTeachers.reverse().map(({ seminar, teacher }) => (
+        <a
+          href={path.join("/seminars", seminar.id)}
+          class={`row group not-last:after:bg-ivory-solid before:bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)]
+            focus:before:opacity-100 hover:before:opacity-100 relative grid content-center items-center
+            py-4 px-4 not-last:after:absolute
+            not-last:after:bottom-0 not-last:after:h-0.25
+            not-last:after:w-[calc(100%-8*var(--spacing))]
+            not-last:after:translate-x-4 lg:min-h-24
+            max-w-128 md:text-lg before:absolute before:inset-0 before:opacity-0 before:-z-10 before:duration-1000`}
+        >
+          <div
+            class={`duration-2000 group-odd:right-10
+              group-even:left-10 lg:absolute lg:w-32 max-w-24 lg:max-w-none
+              lg:group-odd:group-hover:translate-x-4
+              lg:group-even:group-hover:-translate-x-4
+              lg:group-hover:scale-110 group-odd:mr-2 group-even:ml-2 md:group-odd:mr-4 md:group-even:ml-4 lg:group-odd:mr-auto lg:group-even:ml-auto group-odd:justify-self-start group-even:justify-self-end lg:pointer-events-none`}
+            style="grid-area: col-image;"
+          >
+            <ContentImage
+              path={teacher.data.image}
+              class="aspect-square rounded-lg object-cover"
+            />
+          </div>
+          <div
+            class={`after:bg-ivory-solid relative pr-6 pl-2
+              text-right after:absolute after:top-1/2 after:right-2.5
+              after:h-4/5 after:w-0.25 after:-translate-y-1/2 after:opacity-50
+              after:content-[''] md:pr-8 md:after:right-3.5`}
+            style="grid-area: col-seminar;"
+          >
+            <div class="uppercase">{seminar.data.mainTitle}</div>
+            {seminar.data.additionalTitle && <div class="text-sm md:text-lg">{seminar.data.additionalTitle}</div>}
+          </div>
+          <div
+            class="break-words hyphens-auto"
+            lang="de"
+            style="grid-area: col-teacher;"
+          >
+            {teacher.data.name}
+          </div>
+        </a>
+      ))
+    }
+  </div>
 </BaseLayout>

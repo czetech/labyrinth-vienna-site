@@ -7,9 +7,9 @@
 
   --color-black: #323930;
   --color-black-soft: #545454;
-  --color-ivory: #F8F4D9;
-  --color-ivory-soft: #F6F4E8;
-  --color-ivory-solid: #BC9A65;
+  --color-ivory: #f8f4d9;
+  --color-ivory-soft: #f6f4e8;
+  --color-ivory-solid: #bc9a65;
 
   --font-serif: "Cormorant Garamond Variable", serif;
 
@@ -72,7 +72,7 @@
   }
 
   blockquote {
-    @apply border-black my-4 border-l-4 pl-3 italic md:my-6 md:pl-4;
+    @apply my-4 border-l-4 border-black pl-3 italic md:my-6 md:pl-4;
   }
 
   table {
@@ -81,7 +81,7 @@
 
   th,
   td {
-    @apply border-black border p-2 text-left md:p-3;
+    @apply border border-black p-2 text-left md:p-3;
   }
 
   thead {
@@ -93,7 +93,7 @@
   }
 
   code {
-    @apply bg-black rounded px-2 py-1 text-sm;
+    @apply rounded bg-black px-2 py-1 text-sm;
   }
 
   img {

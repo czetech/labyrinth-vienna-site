@@ -1,10 +1,9 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import '@fontsource-variable/cormorant-garamond';
+import "@fontsource-variable/cormorant-garamond";
 import "~/styles/global.css";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
-
 ---
 
 <html lang="en">
@@ -12,9 +11,7 @@ import Header from "~/components/Header.astro";
     <meta charset="utf-8" />
     <meta name="author" content="TODO" />
     <meta name="application-name" content="Labyrinth Vienna" />
-    <meta
-      name="description" content="TODO"
-    />
+    <meta name="description" content="TODO" />
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content="TODO" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +19,7 @@ import Header from "~/components/Header.astro";
     <title>Labyrinth Vienna</title>
     <ClientRouter fallback="none" />
   </head>
-  <body class="text-black bg-ivory-soft">
+  <body class="bg-ivory-soft text-black">
     <div class="flex min-h-dvh flex-col font-serif">
       <Header />
       <main class="flex grow flex-col items-center">

@@ -7,14 +7,16 @@ const teachers = await getCollection("teachers");
 ---
 
 <BaseLayout>
-  <h1 class="capitalize text-4xl">Our teachers</h1>
-  <ul class="flex gap-4 flex-col items-center grow justify-center">
-  {
-    teachers.map((teacher) => (
-      <li>
-        <a href={path.join("/teachers", teacher.id)} class="text-xl p-2">{teacher.data.name}</a>
-      </li>
-    ))
-  }
+  <h1 class="text-4xl capitalize">Our teachers</h1>
+  <ul class="flex grow flex-col items-center justify-center gap-4">
+    {
+      teachers.map((teacher) => (
+        <li>
+          <a href={path.join("/teachers", teacher.id)} class="p-2 text-xl">
+            {teacher.data.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </BaseLayout>

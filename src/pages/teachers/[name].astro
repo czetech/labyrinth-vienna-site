@@ -16,11 +16,17 @@ export const getStaticPaths = async () => {
 ---
 
 <BaseLayout>
-  <div class="flex flex-col md:flex-row gap-x-16 gap-y-8 md:items-start items-center">
-  <ContentImage path={teacher.data.image} class="mb-3 md:rounded-2xl w-full md:max-w-72 max-h-[50dvh] object-cover" />
-    <article class="max-w-144 mx-8 md:mx-0">
-      <h1 class="text-4xl mb-4">{teacher.data.name}</h1>
-      <div class="text-lg"><Markdown content={teacher.data.description} /></div>
+  <div
+    class={`flex flex-col items-center gap-x-16 gap-y-8 md:flex-row
+      md:items-start`}
+  >
+    <ContentImage
+      path={teacher.data.image}
+      class="mb-3 max-h-[50dvh] w-full object-cover md:max-w-72 md:rounded-2xl"
+    />
+    <article class="mx-8 max-w-144 md:mx-0">
+      <h1 class="mb-4 text-4xl">{teacher.data.name}</h1>
+      <div class="text-lg text-justify"><Markdown content={teacher.data.description} /></div>
     </article>
   </div>
 </BaseLayout>

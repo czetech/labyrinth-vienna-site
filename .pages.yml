@@ -13,85 +13,83 @@ media:
       - svg
       - webp
 content:
-- name: seminars
-  label: Seminars
-  type: collection
-  path: content/seminars
-  fields:
-  - name: mainTitle
-    label: Main Title
-    description: Seminar main title.
-    type: text
-    required: true
-  - name: additionalTitle
-    label: Additional Title
-    description:
-      Seminar additional title as a smooth continuation of the main title.
-    type: text
-  - name: teacher
-    label: Teacher
-    description: Seminar teacher.
-    type: reference
-    required: true
-    options:
-      collection: teachers
-      value: "{name}"
-  - name: body
-    label: Description
-    description: Seminar description.
-    type: rich-text-full
-    required: true
-  filename: "{primary}.md"
-- name: teachers
-  label: Teachers
-  type: collection
-  path: content/teachers
-  fields:
-  - name: name
-    label: Name
-    description: Teacher name.
-    type: text
-    required: true
-  - name: image
-    label: Image
-    description: Teacher image in original dimensions with a minimum size of TODOpx.
-    type: image
-    required: true
-    options:
-      media: images
-  - name: headline
-    label: Headline
-    description: Teacher headline.
-    type: text
-    required: true
-  - name: description
-    label: Description
-    description: Teacher description.
-    type: rich-text-full
-    required: true
-    options:
-      media: false
-  - name: videos
-    label: Videos
-    description: Teacher YouTube videos.
-    type: object
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{fields.title}"
+  - name: seminars
+    label: Seminars
+    type: collection
+    path: content/seminars
     fields:
-    - name: title
-      label: Title
-      description: Video title.
-      type: text
-      required: true
-    - name: id
-      label: YouTube URL
-      description:
-        YouTube video URL (www.youtube.com/watch?v=... or youtu.be/...).
-      type: text
-      required: true
-  filename: "{primary}.yaml"
-  format: yaml
+      - name: mainTitle
+        label: Main Title
+        description: Seminar main title.
+        type: text
+        required: true
+      - name: additionalTitle
+        label: Additional Title
+        description: Seminar additional title as a smooth continuation of the main title.
+        type: text
+      - name: teacher
+        label: Teacher
+        description: Seminar teacher.
+        type: reference
+        required: true
+        options:
+          collection: teachers
+          value: "{name}"
+      - name: body
+        label: Description
+        description: Seminar description.
+        type: rich-text-full
+        required: true
+    filename: "{primary}.md"
+  - name: teachers
+    label: Teachers
+    type: collection
+    path: content/teachers
+    fields:
+      - name: name
+        label: Name
+        description: Teacher name.
+        type: text
+        required: true
+      - name: image
+        label: Image
+        description: Teacher image in original dimensions with a minimum size of TODOpx.
+        type: image
+        required: true
+        options:
+          media: images
+      - name: headline
+        label: Headline
+        description: Teacher headline.
+        type: text
+        required: true
+      - name: description
+        label: Description
+        description: Teacher description.
+        type: rich-text-full
+        required: true
+        options:
+          media: false
+      - name: videos
+        label: Videos
+        description: Teacher YouTube videos.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: title
+            label: Title
+            description: Video title.
+            type: text
+            required: true
+          - name: id
+            label: YouTube URL
+            description: YouTube video URL (www.youtube.com/watch?v=... or youtu.be/...).
+            type: text
+            required: true
+    filename: "{primary}.yaml"
+    format: yaml
 settings:
   hide: true
