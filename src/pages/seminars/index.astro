@@ -20,10 +20,6 @@ const seminarsTeachers = await Promise.all(
 <style>
   @reference "~/styles/global.css";
 
-  .row {
-    @apply grid relative py-4;
-  }
-
   .row:nth-child(odd) {
     grid-template-columns:
       [col-image] minmax(0, 1fr)
@@ -38,26 +34,45 @@ const seminarsTeachers = await Promise.all(
       [col-image] minmax(0, 1fr);
   }
 
-  .row:not(:last-child) {
-  }
-
   .row:not(:last-child)::after {
     @apply w-[calc(100%-32px)] h-0.25 absolute content-[''] bg-ivory-solid bottom-0 translate-x-4;
   }
 
-  .column-name::after {
+  .col-seminar::after {
     @apply h-4/5 w-0.25 content-[''] absolute bg-ivory-solid top-1/2 right-2.5 -translate-y-1/2 opacity-50;
+  }
+
+  @media (width >= 48rem) {
+    .row:nth-child(odd) {
+      --direction: 1;
+
+      grid-template-columns:
+        [col-image] 0
+        [col-seminar] minmax(0, 2fr)
+        [col-teacher] minmax(0, 1fr);
+    }
+
+    .row:nth-child(even) {
+      --direction: -1;
+
+      grid-template-columns:
+        [col-seminar] minmax(0, 2fr)
+        [col-teacher] minmax(0, 1fr)
+        [col-image] 0;
+    }
   }
 </style>
 
 <BaseLayout>
   <h1 class="capitalize text-3xl">Seminars</h1>
-  <div class="md:hidden">
+  <div>
   {
-  seminarsTeachers.reverse().map(({seminar, teacher}, index) => (
-      <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory focus:bg-ivory row items-center px-4">
-        <ContentImage path={teacher.data.image} class="object-cover rounded-lg aspect-square w-full max-w-24"  style="grid-area: col-image;" />
-        <div class="text-right column-name relative pl-2 pr-6" style="grid-area: col-seminar;">
+  seminarsTeachers.reverse().map(({seminar, teacher}) => (
+  <a href={path.join("/seminars", seminar.id)} class="hover:bg-ivory focus:bg-ivory row items-center px-4 grid relative py-4 md:text-lg overflow-visible md:min-h-24 md:max-w-128 content-center group">
+        <div class="col-image md:absolute md:group-hover:translate-x-[calc(8*var(--direction)*var(--spacing))] group-hover:translate-x-[calc(8*var(--direction)*var(--spacing))] md:group-hover:scale-110 duration-2000 group-odd:right-16 group-even:left-16" style="grid-area: col-image;">
+          <ContentImage path={teacher.data.image} class="object-cover rounded-lg aspect-square w-full max-w-24 md:w-32 md:h-32 md:max-w-none" />
+        </div>
+        <div class="text-right col-seminar relative pl-2 pr-6" style="grid-area: col-seminar;">
           <div class="uppercase">{seminar.data.mainTitle}</div>
           <div>{seminar.data.additionalTitle}</div>
         </div>
