@@ -55,8 +55,8 @@ const seminarsTeachers = await Promise.all(
 </style>
 
 <BaseLayout>
-  <h1 class="text-4xl capitalize mb-4 lg:mb-8">Seminars</h1>
-  <div>
+  <h1 class="text-4xl capitalize mb-4 lg:mb-8 font-serif">Seminars</h1>
+  <div class="font-serif">
     {
       seminarsTeachers.reverse().map(({ seminar, teacher }) => (
         <a

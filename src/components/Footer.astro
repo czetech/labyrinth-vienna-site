@@ -1,9 +1,85 @@
 ---
+import {navItemsMain, navItemsLegal } from "~/lib/navigation.ts";
+import { getEntry } from "astro:content";
+import Github from "lucide-solid/icons/github";
+import Facebook from "lucide-solid/icons/facebook";
+import Instagram from "lucide-solid/icons/instagram";
+import Youtube from "lucide-solid/icons/youtube";
+
+const footer = await getEntry("footer", "footer");
+
+const socialIcons = [
+  {
+    icon: Facebook,
+    url: footer.data.facebookUrl,
+    text: "Facebook",
+  },
+  {
+    icon: Instagram,
+    url: footer.data.instagramUrl,
+    text: "Instagram",
+  },
+  {
+    icon: Youtube,
+    url: footer.data.youtubeUrl,
+    text: "YouTube",
+  },
+  {
+    icon: Github,
+    url: footer.data.githubUrl,
+    text: "GitHub",
+  },
+];
 
 ---
 
-<footer>
-  <div class="from-ivory-soft to-ivory h-8 bg-linear-to-b"></div>
-  <div class="bg-ivory"></div>
-  <footer></footer>
+<footer transition:persist class="bg-ivory">
+  <div class="grid grid-col-1">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+      <div class="flex flex-wrap justify-center gap-x-2 sm:justify-start">
+        {
+          socialIcons.map(
+            (socialIcon) =>
+              socialIcon.url && (
+                <a
+                  href={socialIcon.url}
+                  target="_blank"
+                  class="p-1"
+                  aria-label={socialIcon.text}
+                >
+                  <Circle>
+                    <socialIcon.icon />
+                  </Circle>
+                </a>
+              ),
+          )
+        }
+      </div>
+      <div
+        class={`flex flex-col items-center gap-y-2 text-sm sm:row-span-2
+          sm:row-start-1 sm:items-start`}
+      >
+        {
+          navItemsMain.map((navItem) => (
+            <a
+              href={navItem.href}
+              target={navItem.target}
+              class="hover:underline"
+            >
+              {navItem.title}
+            </a>
+          ))
+        }
+      </div>
+      <div class="flex flex-col items-center gap-y-2 text-sm sm:items-start">
+        {
+          navItemsLegal.map((navItem) => (
+            <a href={navItem.url} class="hover:underline">
+              {navItem.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </footer>

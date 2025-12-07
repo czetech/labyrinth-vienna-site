@@ -13,6 +13,51 @@ media:
       - svg
       - webp
 content:
+  - name: global
+    label: Global
+    type: file
+    path: content/global.yaml
+    fields:
+      - name: navItemRegister
+        label: Nav Item Register
+        description: Register text in primary navigation.
+        type: text
+        required: true
+      - name: navItemSeminars
+        label: Nav Item Seminars
+        description: Seminars text in primary navigation.
+        type: text
+        required: true
+      - name: navItemInfo
+        label: Nav Item Info
+        description: Info text in primary navigation.
+        type: text
+        required: true
+      - name: navItemAbout
+        label: Nav Item About
+        description: About text in primary navigation.
+        type: text
+        required: true
+      - name: navItemContact
+        label: Nav Item Contact
+        description: Contact text in primary navigation.
+        type: text
+        required: true
+      - name: navItemImprint
+        label: Nav Item Imprint
+        description: Imprint text in secondary navigation.
+        type: text
+        required: true
+      - name: navItemPrivacy
+        label: Nav Item Privacy
+        description: Privacy text in secondary navigation.
+        type: text
+        required: true
+      - name: navItemTerms
+        label: Nav Item Terms
+        description: Terms text in secondary navigation.
+        type: text
+        required: true
   - name: seminars
     label: Seminars
     type: collection
@@ -115,6 +160,23 @@ content:
         description: Weight determining the item's position in the list.
         type: number
     filename: "{primary}.md"
+  - name: about
+    label: About
+    type: file
+    path: content/about.md
+    fields:
+      - name: title
+        label: Title
+        description: About title.
+        type: text
+        required: true
+      - name: body
+        label: Body
+        description: About body.
+        type: rich-text-full
+        required: true
+        options:
+          media: images
   - name: imprint
     label: Imprint
     type: file
@@ -132,5 +194,81 @@ content:
         required: true
         options:
           media: images
+  - name: privacy
+    label: Privacy
+    type: file
+    path: content/privacy.md
+    fields:
+      - name: title
+        label: Title
+        description: Privacy policy title.
+        type: text
+        required: true
+      - name: body
+        label: Body
+        description: Privacy policy body.
+        type: rich-text-full
+        required: true
+        options:
+          media: images
+  - name: terms
+    label: Terms
+    type: file
+    path: content/terms.md
+    fields:
+      - name: title
+        label: Title
+        description: Terms and conditions title.
+        type: text
+        required: true
+      - name: body
+        label: Body
+        description: Terms and conditions body.
+        type: rich-text-full
+        required: true
+        options:
+          media: images
+  - name: footer
+    label: Footer
+    type: file
+    path: content/footer.yaml
+    fields:
+      - name: facebookUrl
+        label: Facebook URL
+        description: Facebook page URL. If it is empty, the icon will not be displayed.
+        type: text
+      - name: instagramUrl
+        label: Instagram URL
+        description: Instagram page URL. If it is empty, the icon will not be displayed.
+        type: text
+      - name: youtubeUrl
+        label: YouTube URL
+        description: YouTube page URL. If it is empty, the icon will not be displayed.
+        type: text
+      - name: githubUrl
+        label: GitHub URL
+        description: GitHub page URL. If it is empty, the icon will not be displayed.
+        type: text
+      - name: partners
+        label: Partners
+        description: List of partners.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: title
+            label: Title
+            description: Partner name.
+            type: text
+            required: true
+          - name: image
+            label: Image
+            description: Partner logo in original dimensions with a minimum size of 192x72px.
+            type: image
+            required: true
+            options:
+              media: images
 settings:
   hide: true

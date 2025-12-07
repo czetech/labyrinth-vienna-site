@@ -8,6 +8,13 @@ const mdGlob = ["*", mdExt].join(".");
 const yamlGlob = ["*", yamlExt].join(".");
 const collectionsBase = "content";
 
+const global = defineCollection({
+  loader: glob({
+    pattern: ["global", yamlExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
 const seminars = defineCollection({
   loader: glob({
     pattern: mdGlob,
@@ -22,7 +29,16 @@ const teachers = defineCollection({
   }),
 });
 
+const footer = defineCollection({
+  loader: glob({
+    pattern: ["footer", yamlExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
 export const collections = {
+  global,
   seminars,
   teachers,
+  footer,
 };

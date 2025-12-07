@@ -7,8 +7,8 @@ const teachers = await getCollection("teachers");
 ---
 
 <BaseLayout>
-  <h1 class="text-4xl capitalize">Our teachers</h1>
-  <ul class="flex grow flex-col items-center justify-center gap-4">
+  <h1 class="text-4xl capitalize font-serif">Our teachers</h1>
+  <ul class="flex grow flex-col items-center justify-center gap-4 font-serif">
     {
       teachers.map((teacher) => (
         <li>
