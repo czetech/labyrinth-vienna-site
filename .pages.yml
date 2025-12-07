@@ -40,6 +40,10 @@ content:
         description: Seminar description.
         type: rich-text-full
         required: true
+      - name: weight
+        label: Sorting weight
+        description: Weight determining the item's position in the list.
+        type: number
     filename: "{primary}.md"
   - name: teachers
     label: Teachers
@@ -91,5 +95,25 @@ content:
             required: true
     filename: "{primary}.yaml"
     format: yaml
+  - name: info
+    label: Informations
+    type: collection
+    path: content/info
+    fields:
+      - name: title
+        label: Title
+        description: Title (heading) for the information or FAQ question.
+        type: text
+        required: true
+      - name: body
+        label: Information
+        description: Information body or FAQ answer.
+        type: rich-text-full
+        required: true
+      - name: weight
+        label: Sorting weight
+        description: Weight determining the item's position in the list.
+        type: number
+    filename: "{primary}.md"
 settings:
   hide: true
