@@ -115,5 +115,22 @@ content:
         description: Weight determining the item's position in the list.
         type: number
     filename: "{primary}.md"
+  - name: imprint
+    label: Imprint
+    type: file
+    path: content/imprint.md
+    fields:
+      - name: title
+        label: Title
+        description: Imprint title.
+        type: text
+        required: true
+      - name: body
+        label: Body
+        description: Imprint body.
+        type: rich-text-full
+        required: true
+        options:
+          media: images
 settings:
   hide: true
