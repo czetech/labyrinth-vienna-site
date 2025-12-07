@@ -1,0 +1,15 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getEntry, render } from "astro:content";
+
+const about = await getEntry("about", "about");
+
+const { Content } = await render(about);
+---
+
+<BaseLayout>
+  <h1 class="font-serif text-4xl mb-8">{about.data.title}</h1>
+  <div class="tracking-wide font-serif text-lg max-w-144 markdown">
+    <Content />
+  </div>
+</BaseLayout>
