@@ -4,7 +4,7 @@ import { getCollection, getEntry } from "astro:content";
 import path from "pathe";
 import ContentImage from "~/components/ContentImage.astro";
 
-const seminars = await getCollection("seminars");
+const seminars = (await getCollection("seminars")).sort((a, b) => b.data.weight - a.data.weight);
 
 const seminarsTeachers = await Promise.all(
   seminars.map(async (seminar) => {
@@ -55,26 +55,31 @@ const seminarsTeachers = await Promise.all(
 </style>
 
 <BaseLayout>
-  <h1 class="text-3xl md:text-4xl capitalize mb-4 lg:mb-8 font-serif">Seminars</h1>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    Seminars
+  </h1>
   <div class="font-serif">
     {
-      seminarsTeachers.reverse().map(({ seminar, teacher }) => (
+      seminarsTeachers.map(({ seminar, teacher }) => (
         <a
           href={path.join("/seminars", seminar.id)}
-          class={`row group not-last:after:bg-ivory-solid before:bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)]
-            hover:before:opacity-100 relative grid content-center items-center
-            py-4 px-4 not-last:after:absolute
+          class={`row group not-last:after:bg-ivory-solid relative grid
+            max-w-128 content-center items-center px-4 py-4 before:absolute
+            before:inset-0 before:-z-10
+            before:bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)]
+            before:opacity-0 before:duration-1000 not-last:after:absolute
             not-last:after:bottom-0 not-last:after:h-0.25
             not-last:after:w-[calc(100%-8*var(--spacing))]
-            not-last:after:translate-x-4 lg:min-h-24
-            max-w-128 before:absolute before:inset-0 before:opacity-0 before:-z-10 before:duration-1000`}
+            not-last:after:translate-x-4 hover:before:opacity-100 lg:min-h-24`}
         >
           <div
-            class={`duration-2000 group-odd:right-10
-              group-even:left-10 lg:absolute lg:w-32 max-w-24 lg:max-w-none
-              lg:group-odd:group-hover:translate-x-4
-              lg:group-even:group-hover:-translate-x-4
-              lg:group-hover:scale-110 group-odd:mr-2 group-even:ml-2 md:group-odd:mr-4 md:group-even:ml-4 lg:group-odd:mr-auto lg:group-even:ml-auto group-odd:justify-self-start group-even:justify-self-end lg:pointer-events-none`}
+            class={`max-w-24 duration-2000 group-odd:right-10 group-odd:mr-2
+              group-odd:justify-self-start group-even:left-10 group-even:ml-2
+              group-even:justify-self-end md:group-odd:mr-4 md:group-even:ml-4
+              lg:pointer-events-none lg:absolute lg:w-32 lg:max-w-none
+              lg:group-odd:mr-auto lg:group-even:ml-auto
+              lg:group-hover:scale-110 lg:group-odd:group-hover:translate-x-4
+              lg:group-even:group-hover:-translate-x-4`}
             style="grid-area: col-image;"
           >
             <ContentImage
@@ -83,14 +88,20 @@ const seminarsTeachers = await Promise.all(
             />
           </div>
           <div
-            class={`after:bg-ivory-solid relative pr-6 pl-2
-              text-right after:absolute after:top-1/2 after:right-2.5
-              after:h-4/5 after:w-0.25 after:-translate-y-1/2 after:opacity-50
+            class={`after:bg-ivory-solid relative pr-6 pl-2 text-right
+              after:absolute after:top-1/2 after:right-2.5 after:h-4/5
+              after:w-0.25 after:-translate-y-1/2 after:opacity-50
               after:content-[''] md:pr-8 md:after:right-3.5`}
             style="grid-area: col-seminar;"
           >
-            <div class="uppercase md:text-lg lg:text-xl">{seminar.data.mainTitle}</div>
-            {seminar.data.additionalTitle && <div class="text-sm md:text-md lg:text-lg">{seminar.data.additionalTitle}</div>}
+            <div class="uppercase md:text-lg lg:text-xl">
+              {seminar.data.mainTitle}
+            </div>
+            {seminar.data.additionalTitle && (
+              <div class="md:text-md text-sm lg:text-lg">
+                {seminar.data.additionalTitle}
+              </div>
+            )}
           </div>
           <div
             class="break-words hyphens-auto md:text-lg lg:text-xl"

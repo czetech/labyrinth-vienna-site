@@ -90,6 +90,15 @@ content:
         description: Weight determining the item's position in the list.
         type: number
     filename: "{primary}.md"
+    view:
+      fields:
+        - mainTitle
+        - additionalTitle
+      sort:
+        - weight
+      search:
+        - mainTitle
+        - additionalTitle
   - name: teachers
     label: Teachers
     type: collection

@@ -1,5 +1,5 @@
 ---
-import {navItemsMain, navItemsLegal } from "~/lib/navigation.ts";
+import { navItemsMain, navItemsLegal } from "~/lib/navigation.ts";
 import { getEntry } from "astro:content";
 import Github from "lucide-solid/icons/github";
 import Facebook from "lucide-solid/icons/facebook";
@@ -30,11 +30,10 @@ const socialIcons = [
     text: "GitHub",
   },
 ];
-
 ---
 
 <footer transition:persist class="bg-ivory">
-  <div class="grid grid-col-1">
+  <div class="grid-col-1 grid">
     <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
       <div class="flex flex-wrap justify-center gap-x-2 sm:justify-start">
         {

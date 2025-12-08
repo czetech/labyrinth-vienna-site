@@ -43,8 +43,6 @@ const teachers = defineCollection({
   }),
 });
 
-
-
 export const collections = {
   about,
   global,
