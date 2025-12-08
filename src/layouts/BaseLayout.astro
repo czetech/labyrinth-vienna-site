@@ -23,7 +23,10 @@ const { strictHeight = false } = Astro.props;
     <ClientRouter fallback="none" />
   </head>
   <body class="bg-ivory-soft text-black">
-    <div class="flex flex-col" class:list={{ "min-h-dvh": !strictHeight, "h-dvh": strictHeight }}>
+    <div
+      class="flex flex-col"
+      class:list={{ "min-h-dvh": !strictHeight, "h-dvh": strictHeight }}
+    >
       <Header />
       <main class="flex grow flex-col items-center">
         <slot />

@@ -66,13 +66,13 @@ const seminarsTeachers = await Promise.all(
         <a
           href={path.join("/seminars", seminar.id)}
           class={`row group not-last:after:bg-ivory-solid relative grid
-            max-w-128 content-center items-center px-4 py-4 before:absolute
-            before:inset-0 before:-z-10
+            max-w-128 content-center items-center px-4 py-4 font-medium
+            before:absolute before:inset-0 before:-z-10
             before:bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)]
             before:opacity-0 before:duration-1000 not-last:after:absolute
             not-last:after:bottom-0 not-last:after:h-0.25
             not-last:after:w-[calc(100%-8*var(--spacing))]
-            not-last:after:translate-x-4 hover:before:opacity-100 lg:min-h-24 font-medium`}
+            not-last:after:translate-x-4 hover:before:opacity-100 lg:min-h-24`}
         >
           <div
             class={`max-w-24 duration-2000 group-odd:right-10 group-odd:mr-2

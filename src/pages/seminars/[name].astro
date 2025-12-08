@@ -30,7 +30,7 @@ export const getStaticPaths = async () => {
         class="max-h-64 rounded-2xl object-cover"
       />
       <div class="flex flex-col gap-y-2">
-        <h1 class="font-serif text-xl md:text-3xl flex flex-col">
+        <h1 class="flex flex-col font-serif text-xl md:text-3xl">
           <span class="font-bold uppercase">{seminar.data.mainTitle}</span>
           <span>{seminar.data.additionalTitle}</span>
         </h1>
@@ -42,7 +42,9 @@ export const getStaticPaths = async () => {
         >
       </div>
     </div>
-    <div class="markdown text-justify font-serif text-lg tracking-wide font-medium">
+    <div
+      class="markdown text-justify font-serif text-lg font-medium tracking-wide"
+    >
       <Content content={seminar} />
     </div>
   </article>

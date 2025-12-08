@@ -9,7 +9,10 @@ const { Content } = await render(about);
 
 <BaseLayout>
   <h1 class="mb-8 font-serif text-4xl font-medium">{about.data.title}</h1>
-  <div class="markdown max-w-144 text-justify font-serif text-lg tracking-wide font-medium">
+  <div
+    class={`markdown max-w-144 text-justify font-serif text-lg font-medium
+      tracking-wide`}
+  >
     <Content />
   </div>
 </BaseLayout>
