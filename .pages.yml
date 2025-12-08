@@ -95,11 +95,11 @@ content:
         - mainTitle
         - additionalTitle
         - weight
-      sort:
-        - weight
       search:
         - mainTitle
         - additionalTitle
+      default:
+        sort: weight
   - name: teachers
     label: Teachers
     type: collection
