@@ -100,6 +100,7 @@ content:
         - additionalTitle
       default:
         sort: weight
+        order: desc
   - name: teachers
     label: Teachers
     type: collection
