@@ -95,9 +95,6 @@ content:
         - mainTitle
         - additionalTitle
         - weight
-      search:
-        - mainTitle
-        - additionalTitle
       default:
         sort: weight
         order: desc
