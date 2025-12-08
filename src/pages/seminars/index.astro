@@ -4,7 +4,9 @@ import { getCollection, getEntry } from "astro:content";
 import path from "pathe";
 import ContentImage from "~/components/ContentImage.astro";
 
-const seminars = (await getCollection("seminars")).sort((a, b) => b.data.weight - a.data.weight);
+const seminars = (await getCollection("seminars")).sort(
+  (a, b) => b.data.weight - a.data.weight,
+);
 
 const seminarsTeachers = await Promise.all(
   seminars.map(async (seminar) => {
@@ -70,7 +72,7 @@ const seminarsTeachers = await Promise.all(
             before:opacity-0 before:duration-1000 not-last:after:absolute
             not-last:after:bottom-0 not-last:after:h-0.25
             not-last:after:w-[calc(100%-8*var(--spacing))]
-            not-last:after:translate-x-4 hover:before:opacity-100 lg:min-h-24`}
+            not-last:after:translate-x-4 hover:before:opacity-100 lg:min-h-24 font-medium`}
         >
           <div
             class={`max-w-24 duration-2000 group-odd:right-10 group-odd:mr-2

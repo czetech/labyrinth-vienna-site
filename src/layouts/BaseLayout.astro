@@ -5,6 +5,8 @@ import "@fontsource-variable/montserrat";
 import "~/styles/global.css";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
+
+const { strictHeight = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -21,7 +23,7 @@ import Header from "~/components/Header.astro";
     <ClientRouter fallback="none" />
   </head>
   <body class="bg-ivory-soft text-black">
-    <div class="flex min-h-dvh flex-col">
+    <div class="flex flex-col" class:list={{ "min-h-dvh": !strictHeight, "h-dvh": strictHeight }}>
       <Header />
       <main class="flex grow flex-col items-center">
         <slot />

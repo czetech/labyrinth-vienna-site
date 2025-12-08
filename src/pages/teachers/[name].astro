@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
       path={teacher.data.image}
       class="mb-3 max-h-[50dvh] w-full object-cover md:max-w-72 md:rounded-2xl"
     />
-    <article class="mx-8 max-w-144 font-serif md:mx-0">
+    <article class="mx-8 max-w-144 font-serif md:mx-0 font-medium">
       <h1 class="mb-4 text-4xl">{teacher.data.name}</h1>
       <div class="text-justify text-lg tracking-wide">
         <Markdown content={teacher.data.description} />
