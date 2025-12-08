@@ -95,6 +95,8 @@ content:
         - mainTitle
         - additionalTitle
         - weight
+      sort:
+        - weight
       search:
         - mainTitle
         - additionalTitle
