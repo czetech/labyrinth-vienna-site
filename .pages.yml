@@ -141,7 +141,7 @@ content:
     filename: "{primary}.yaml"
     format: yaml
   - name: info
-    label: Informations
+    label: Information
     type: collection
     path: content/info
     fields:

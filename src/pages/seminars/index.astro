@@ -55,7 +55,7 @@ const seminarsTeachers = await Promise.all(
 </style>
 
 <BaseLayout>
-  <h1 class="text-4xl capitalize mb-4 lg:mb-8 font-serif">Seminars</h1>
+  <h1 class="text-3xl md:text-4xl capitalize mb-4 lg:mb-8 font-serif">Seminars</h1>
   <div class="font-serif">
     {
       seminarsTeachers.reverse().map(({ seminar, teacher }) => (
@@ -67,7 +67,7 @@ const seminarsTeachers = await Promise.all(
             not-last:after:bottom-0 not-last:after:h-0.25
             not-last:after:w-[calc(100%-8*var(--spacing))]
             not-last:after:translate-x-4 lg:min-h-24
-            max-w-128 md:text-lg before:absolute before:inset-0 before:opacity-0 before:-z-10 before:duration-1000`}
+            max-w-128 before:absolute before:inset-0 before:opacity-0 before:-z-10 before:duration-1000`}
         >
           <div
             class={`duration-2000 group-odd:right-10
@@ -89,11 +89,11 @@ const seminarsTeachers = await Promise.all(
               after:content-[''] md:pr-8 md:after:right-3.5`}
             style="grid-area: col-seminar;"
           >
-            <div class="uppercase">{seminar.data.mainTitle}</div>
-            {seminar.data.additionalTitle && <div class="text-sm md:text-lg">{seminar.data.additionalTitle}</div>}
+            <div class="uppercase md:text-lg lg:text-xl">{seminar.data.mainTitle}</div>
+            {seminar.data.additionalTitle && <div class="text-sm md:text-md lg:text-lg">{seminar.data.additionalTitle}</div>}
           </div>
           <div
-            class="break-words hyphens-auto"
+            class="break-words hyphens-auto md:text-lg lg:text-xl"
             lang="de"
             style="grid-area: col-teacher;"
           >
