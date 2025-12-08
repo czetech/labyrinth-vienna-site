@@ -94,6 +94,7 @@ content:
       fields:
         - mainTitle
         - additionalTitle
+        - weight
       sort:
         - weight
       search:
