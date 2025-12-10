@@ -8,6 +8,8 @@ import Youtube from "lucide-solid/icons/youtube";
 
 const footer = await getEntry("footer", "footer");
 
+const currentYear = new Date().getFullYear();
+
 const socialIcons = [
   {
     icon: Facebook,
@@ -32,8 +34,8 @@ const socialIcons = [
 ];
 ---
 
-<footer transition:persist class="bg-ivory">
-  <div class="grid-col-1 grid">
+<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] pt-8">
+  <div class="grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 lg:grid-cols-2">
     <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
       <div class="flex flex-wrap justify-center gap-x-2 sm:justify-start">
         {
@@ -46,9 +48,7 @@ const socialIcons = [
                   class="p-1"
                   aria-label={socialIcon.text}
                 >
-                  <Circle>
-                    <socialIcon.icon />
-                  </Circle>
+                  <socialIcon.icon class="stroke-1" />
                 </a>
               ),
           )
@@ -72,13 +72,43 @@ const socialIcons = [
       </div>
       <div class="flex flex-col items-center gap-y-2 text-sm sm:items-start">
         {
-          navItemsLegal.map((navItem) => (
-            <a href={navItem.url} class="hover:underline">
-              {navItem.title}
+          navItemsLegal.map((secondaryNavItem) => (
+            <a href={secondaryNavItem.url} class="hover:underline">
+              {secondaryNavItem.title}
             </a>
           ))
         }
       </div>
+    </div>
+    <div
+      class={`flex flex-wrap items-center justify-center gap-x-8 gap-y-4
+        lg:col-span-2`}
+    >
+    {/*
+        footer.data.partners.map((partner) => (
+          <ContentImage
+            path={partner.image}
+            alt={partner.name}
+            class="h-18 max-w-32 object-contain lg:h-18 lg:max-w-48"
+            style="filter: brightness(0) invert(1);"
+          />
+        ))
+        */}
+    </div>
+    <div class="flex flex-col gap-y-2 text-xs lg:col-start-2 lg:row-start-1">
+      <p>{footer.data.fundingHeadline}</p>
+      <p class="text-justify">{footer.data.fundingText}</p>
+    </div>
+    <div class="flex justify-center gap-x-2 text-sm lg:col-span-2">
+      <p>Copyright © {currentYear}</p>
+      <span>🪕</span>
+      <a href="https://www.roots-revival.com/" target="_blank" class="hover:underline"
+        >Roots Revival</a
+      >
+      <span>&</span>
+      <a href="https://klangbaeckerei.at/" target="_blank" class="hover:underline"
+        >Klangbäckerei</a
+      >
     </div>
   </div>
 </footer>
