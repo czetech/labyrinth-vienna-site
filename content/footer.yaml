@@ -1,4 +1,8 @@
 facebookUrl: "#"
 instagramUrl: "#"
-youtubeUrl: "https://www.youtube.com/@RootsRevival"
-githubUrl: "https://github.com/czetech/labyrinth-vienna-site"
+youtubeUrl: https://www.youtube.com/@RootsRevival
+githubUrl: https://github.com/czetech/labyrinth-vienna-site
+partners:
+  - title: Roots Revival
+    url: https://www.roots-revival.com/
+    image: /images/1-sin-fondo.avif
