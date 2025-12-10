@@ -271,6 +271,11 @@ content:
             description: Partner name.
             type: text
             required: true
+          - name: url
+            label: URL
+            description: Partner URL
+            type: text
+            required: true
           - name: image
             label: Image
             description: Partner logo in original dimensions with a minimum size of 192x72px.

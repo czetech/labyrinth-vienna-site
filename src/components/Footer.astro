@@ -35,8 +35,11 @@ const socialIcons = [
 ];
 ---
 
-<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 lg:grid-cols-2">
-    <div class="grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 pt-10 lg:grid-cols-2 text-sm tracking-widest">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+    <div class="justify-self-center">
+      <Logo class="h-12 block" />
+    </div>
       <div class="flex flex-wrap justify-center gap-x-2 sm:justify-start">
         {
           socialIcons.map(
@@ -82,7 +85,8 @@ const socialIcons = [
     </div>
     <div
       class={`flex flex-wrap items-center justify-center gap-x-8 gap-y-4`}
-    >
+        >
+        <span>Partners</span>
     {/*
         footer.data.partners.map((partner) => (
           <ContentImage
@@ -94,10 +98,7 @@ const socialIcons = [
         ))
         */}
     </div>
-    <div class="flex justify-center lg:col-span-2">
-      <Logo class="h-12" />
-    </div>
-    <div class="flex items-center flex-col gap-y-2 text-sm lg:col-span-2">
+    <div class="flex items-center flex-col gap-y-2 lg:col-span-2">
       <p>Copyright © {currentYear}</p>
       <p>
         <a href="https://www.roots-revival.com/" target="_blank" class="hover:underline"
