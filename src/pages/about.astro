@@ -8,7 +8,9 @@ const { Content } = await render(about);
 ---
 
 <BaseLayout>
-  <h1 class="mb-8 font-serif text-4xl font-medium">{about.data.title}</h1>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    {about.data.title}
+  </h1>
   <div
     class={`markdown max-w-144 text-justify font-serif text-lg font-medium
       tracking-wide`}

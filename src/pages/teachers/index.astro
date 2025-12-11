@@ -7,7 +7,9 @@ const teachers = await getCollection("teachers");
 ---
 
 <BaseLayout>
-  <h1 class="font-serif text-4xl capitalize">Our teachers</h1>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    Our teachers
+  </h1>
   <ul class="flex grow flex-col items-center justify-center gap-4 font-serif">
     {
       teachers.map((teacher) => (

@@ -29,6 +29,27 @@ const global = defineCollection({
   }),
 });
 
+const imprint = defineCollection({
+  loader: glob({
+    pattern: ["imprint", mdExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
+const infoMainColl = defineCollection({
+  loader: glob({
+    pattern: mdGlob,
+    base: path.join(collectionsBase, "info_main_coll"),
+  }),
+});
+
+const privacy = defineCollection({
+  loader: glob({
+    pattern: ["privacy", mdExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
 const seminars = defineCollection({
   loader: glob({
     pattern: mdGlob,
@@ -43,10 +64,21 @@ const teachers = defineCollection({
   }),
 });
 
+const terms = defineCollection({
+  loader: glob({
+    pattern: ["terms", mdExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
 export const collections = {
   about,
   global,
   footer,
+  imprint,
+  infoMainColl,
+  privacy,
   seminars,
   teachers,
+  terms,
 };

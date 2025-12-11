@@ -1,7 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getEntry, render } from "astro:content";
+
+const imprint = await getEntry("imprint", "imprint");
 ---
 
 <BaseLayout>
-  <span>TODO</span>
+  <h1 class="mb-4 text-xl capitalize md:text-2xl lg:mb-8">
+    {imprint.data.title}
+  </h1>
 </BaseLayout>

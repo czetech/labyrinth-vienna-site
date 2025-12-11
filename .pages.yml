@@ -148,10 +148,50 @@ content:
             required: true
     filename: "{primary}.yaml"
     format: yaml
-  - name: info
-    label: Information
+  - name: info_main_coll
+    label: Info - Main - Collection
     type: collection
-    path: content/info
+    path: content/info_main_coll
+    fields:
+      - name: title
+        label: Title
+        description: Title (heading) for the information or FAQ question.
+        type: text
+        required: true
+      - name: body
+        label: Information
+        description: Information body or FAQ answer.
+        type: rich-text-full
+        required: true
+      - name: weight
+        label: Sorting weight
+        description: Weight determining the item's position in the list.
+        type: number
+    filename: "{primary}.md"
+  - name: info_location_coll
+    label: Info - Location - Collection
+    type: collection
+    path: content/info_location_coll
+    fields:
+      - name: title
+        label: Title
+        description: Title (heading) for the information or FAQ question.
+        type: text
+        required: true
+      - name: body
+        label: Information
+        description: Information body or FAQ answer.
+        type: rich-text-full
+        required: true
+      - name: weight
+        label: Sorting weight
+        description: Weight determining the item's position in the list.
+        type: number
+    filename: "{primary}.md"
+  - name: info_faq_coll
+    label: Info - FAQ - Collection
+    type: collection
+    path: content/info_faq_coll
     fields:
       - name: title
         label: Title

@@ -1,7 +1,41 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getEntry, getCollection, render } from "astro:content";
+
+const infoMainColl = await getCollection("infoMainColl");
+
+const infoContent = await Promise.all(
+  infoMainColl.map(async (entry) => {
+    const { Content } = await render(entry);
+    return {
+      ...entry,
+      Content,
+    };
+  })
+  );
 ---
 
 <BaseLayout>
-  <span>TODO</span>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    Prices, accomodation and food
+  </h1>
+  <div class="max-w-144 font-serif flex flex-col gap-y-4">
+    {
+    infoContent.map((info) => (
+    <div class="border bg-ivory rounded">
+      {info.data.title}
+        <div>
+          <info.Content />
+        </div>
+      </div>
+      </div>
+    ))}
+  </div>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    Location
+  </h1>
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8">
+    FAQ
+  </h1>
+
 </BaseLayout>
