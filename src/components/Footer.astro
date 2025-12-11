@@ -36,82 +36,89 @@ const socialIcons = [
 ];
 ---
 
-<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 pt-12 sm:pt-16 lg:grid-cols-2 text-sm">
+<footer
+  transition:persist
+  class={`to-ivory grid grid-cols-1 gap-x-16 gap-y-8 bg-linear-to-b
+    to-[calc(8*var(--spacing))] p-4 pt-12 text-sm sm:p-8 sm:pt-16
+    lg:grid-cols-2`}
+>
   <div class="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
     <div class="justify-self-center sm:justify-self-start">
-      <Logo class="h-12 block" />
+      <Logo class="block h-12" />
     </div>
-      <div class="flex justify-center gap-x-4 sm:justify-start items-start">
-        {
-          socialIcons.map(
-            (socialIcon) =>
-              socialIcon.url && (
-                <a
-                  href={socialIcon.url}
-                  target="_blank"
-                  aria-label={socialIcon.text}
-                >
-                  <socialIcon.icon class="stroke-1" />
-                </a>
-              ),
-          )
-        }
-      </div>
-      <div
-        class="flex flex-col items-center gap-y-2
-          sm:items-start"
-      >
-        {
-          navItemsMain.map((navItem) => (
-            <a
-              href={navItem.href}
-              target={navItem.target}
-              class="hover:underline"
-            >
-              {navItem.title}
-            </a>
-          ))
-        }
-      </div>
-      <div class="flex flex-col items-center gap-y-2 sm:items-start">
-        {
-          navItemsLegal.map((secondaryNavItem) => (
-            <a href={secondaryNavItem.url} class="hover:underline">
-              {secondaryNavItem.title}
-            </a>
-          ))
-        }
-      </div>
+    <div class="flex items-start justify-center gap-x-4 sm:justify-start">
+      {
+        socialIcons.map(
+          (socialIcon) =>
+            socialIcon.url && (
+              <a
+                href={socialIcon.url}
+                target="_blank"
+                aria-label={socialIcon.text}
+              >
+                <socialIcon.icon class="stroke-1" />
+              </a>
+            ),
+        )
+      }
     </div>
-    <div
-      class="flex flex-col gap-y-4 items-center lg:items-start."
-        >
-        <span>Partners:</span>
-        <div class="flex flex-col items-center gap-x-8 lg:gap-x-16 gap-y-2 sm:flex-row flex-wrap">
-    {
-        footer.data.partners.map((partner) => (
-        <a href={partner.url}>
-          <ContentImage
-            path={partner.image}
-            alt={partner.title}
-            class="h-24 max-w-48 object-contain lg:h-18. lg:max-w-48."
-            style="filter: invert(50%) sepia(50%) saturate(300%) hue-rotate(357deg) brightness(80%);"
-            />
-        </a>
+    <div class="flex flex-col items-center gap-y-2 sm:items-start">
+      {
+        navItemsMain.map((navItem) => (
+          <a
+            href={navItem.href}
+            target={navItem.target}
+            class="hover:underline"
+          >
+            {navItem.title}
+          </a>
         ))
-        }
-        </div>
+      }
     </div>
-    <div class="flex items-center flex-col gap-y-2 lg:col-span-2">
-      <p>Copyright © {currentYear}</p>
-      <p>
-        <a href="https://www.roots-revival.com/" target="_blank" class="hover:underline"
-          >Roots Revival</a
-        >
-        <span>🪕</span>
-        <a href="https://klangbaeckerei.at/" target="_blank" class="hover:underline"
-          >Klangbäckerei</a
-        >
-      </p>
+    <div class="flex flex-col items-center gap-y-2 sm:items-start">
+      {
+        navItemsLegal.map((secondaryNavItem) => (
+          <a href={secondaryNavItem.url} class="hover:underline">
+            {secondaryNavItem.title}
+          </a>
+        ))
+      }
     </div>
+  </div>
+  <div class="lg:items-start. flex flex-col items-center gap-y-4">
+    <span>Partners:</span>
+    <div
+      class={`flex flex-col flex-wrap items-center gap-x-8 gap-y-2 sm:flex-row
+        lg:gap-x-16`}
+    >
+      {
+        footer.data.partners.map((partner) => (
+          <a href={partner.url}>
+            <ContentImage
+              path={partner.image}
+              alt={partner.title}
+              class="lg:h-18. lg:max-w-48. h-24 max-w-48 object-contain"
+              style="filter: invert(50%) sepia(50%) saturate(300%) hue-rotate(357deg) brightness(80%);"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <div class="flex flex-col items-center gap-y-2 lg:col-span-2">
+    <p>Copyright © {currentYear}</p>
+    <p>
+      <a
+        href="https://www.roots-revival.com/"
+        target="_blank"
+        class="hover:underline">Roots Revival</a
+      >
+      <span>🪕</span>
+      <a
+        href="https://klangbaeckerei.at/"
+        target="_blank"
+        class="hover:underline">Klangbäckerei</a
+      >
+    </p>
+  </div>
 </footer>

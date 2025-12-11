@@ -1,5 +1,6 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
+import ArrowDown from "lucide-solid/icons/arrow-down";
 
 const { title, collection } = Astro.props;
 
@@ -10,26 +11,77 @@ const collectionContent = await Promise.all(
       ...entry,
       Content,
     };
-  })
-  );
+  }),
+);
 ---
 
-<div class="flex flex-col w-full">
-  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8 self-center">
+<div class="flex flex-col">
+  <h1
+    class="mb-4 self-center font-serif text-3xl capitalize md:text-4xl lg:mb-8"
+  >
     {title}
   </h1>
-  <div class="font-serif flex flex-col gap-y-4">
+  <div class="flex flex-col gap-y-4">
     {
-    collectionContent.map((entry) => (
-    <div class="border rounded-xl">
-      <h2 class="text-xl font-bold px-2 py-1 bg-ivory rounded-xl">
-        {entry.data.title}
-      </h2>
-        <div class="text-justify text-lg font-medium tracking-wide px-2 py-2 hidden">
-          <entry.Content />
+      collectionContent.map((entry) => (
+        <div class="accordion-group rounded-xl border overflow-hidden">
+          <button class="accordion-toggle bg-ivory flex justify-between px-2 py-1 w-full">
+            <h2 class="font-serif text-xl font-bold text-start">{entry.data.title}</h2>
+            <ArrowDown class="accordion-icon duration-1000" />
+          </button>
+          <div class="accordion-container invisible grid-rows-[0fr] grid duration-500">
+            <div class="accordion-content overflow-hidden opacity-0 duration-1000">
+              <div class="p-4 markdown">
+                <entry.Content />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </div>
+
+<script>
+  function setupAccordion() {
+    const allGroups = document.querySelectorAll(".accordion-group");
+
+    const closeGroup = (group) => {
+      const container = group.querySelector(".accordion-container");
+      const content = group.querySelector(".accordion-content");
+      const icon = group.querySelector(".accordion-icon");
+
+      container.classList.remove("grid-rows-[1fr]");
+      container.classList.add("grid-rows-[0fr]", "invisible");
+      content.classList.add("opacity-0");
+      icon.classList.remove("rotate-180");
+    };
+
+    const openGroup = (group) => {
+      const container = group.querySelector(".accordion-container");
+      const content = group.querySelector(".accordion-content");
+      const icon = group.querySelector(".accordion-icon");
+
+      container.classList.remove("grid-rows-[0fr]", "invisible");
+      container.classList.add("grid-rows-[1fr]");
+      content.classList.remove("opacity-0");
+      icon.classList.add("rotate-180");
+    };
+
+    allGroups.forEach((group) => {
+      const toggle = group.querySelector(".accordion-toggle");
+
+      toggle.addEventListener("click", () => {
+        const container = group.querySelector(".accordion-container");
+        const isOpen = container.classList.contains("grid-rows-[1fr]");
+        allGroups.forEach((g) => closeGroup(g));
+        if (!isOpen) {
+          openGroup(group);
+        }
+      });
+    });
+  }
+
+  document.addEventListener("astro:after-swap", setupAccordion);
+  setupAccordion();
+</script>
