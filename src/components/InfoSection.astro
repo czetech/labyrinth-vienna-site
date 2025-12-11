@@ -1,0 +1,35 @@
+---
+import { getEntry, getCollection, render } from "astro:content";
+
+const { title, collection } = Astro.props;
+
+const collectionContent = await Promise.all(
+  collection.map(async (entry) => {
+    const { Content } = await render(entry);
+    return {
+      ...entry,
+      Content,
+    };
+  })
+  );
+---
+
+<div class="flex flex-col w-full">
+  <h1 class="mb-4 font-serif text-3xl capitalize md:text-4xl lg:mb-8 self-center">
+    {title}
+  </h1>
+  <div class="font-serif flex flex-col gap-y-4">
+    {
+    collectionContent.map((entry) => (
+    <div class="border rounded-xl">
+      <h2 class="text-xl font-bold px-2 py-1 bg-ivory rounded-xl">
+        {entry.data.title}
+      </h2>
+        <div class="text-justify text-lg font-medium tracking-wide px-2 py-2 hidden">
+          <entry.Content />
+        </div>
+      </div>
+      </div>
+    ))}
+  </div>
+</div>

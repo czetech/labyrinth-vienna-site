@@ -1,5 +1,6 @@
 ---
 title: Food
+weight: 100
 ---
 Meals will be prepared by **our chef**, who will be offering delicious dishes made with local ingredients. The meal package includes **breakfast, lunch, and dinner for all five days** of the seminars. Please note that meals cannot be booked on a daily basis; the package is all-inclusive.
 

@@ -36,10 +36,31 @@ const imprint = defineCollection({
   }),
 });
 
-const infoMainColl = defineCollection({
+const info = defineCollection({
+  loader: glob({
+    pattern: ["info", yamlExt].join("."),
+    base: collectionsBase,
+  }),
+});
+
+const infoFaq = defineCollection({
   loader: glob({
     pattern: mdGlob,
-    base: path.join(collectionsBase, "info_main_coll"),
+    base: path.join(collectionsBase, "info_faq"),
+  }),
+});
+
+const infoLocation = defineCollection({
+  loader: glob({
+    pattern: mdGlob,
+    base: path.join(collectionsBase, "info_location"),
+  }),
+});
+
+const infoMain = defineCollection({
+  loader: glob({
+    pattern: mdGlob,
+    base: path.join(collectionsBase, "info_main"),
   }),
 });
 
@@ -76,7 +97,10 @@ export const collections = {
   global,
   footer,
   imprint,
-  infoMainColl,
+  info,
+  infoFaq,
+  infoLocation,
+  infoMain,
   privacy,
   seminars,
   teachers,

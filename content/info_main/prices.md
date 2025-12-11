@@ -1,5 +1,6 @@
 ---
 title: Seminar Prices
+weight: 300
 ---
 We work with three registration-fee options. Choose the one that fits your situation best:
 

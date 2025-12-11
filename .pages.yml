@@ -148,10 +148,10 @@ content:
             required: true
     filename: "{primary}.yaml"
     format: yaml
-  - name: info_main_coll
-    label: Info - Main - Collection
+  - name: info_main
+    label: Info - Main
     type: collection
-    path: content/info_main_coll
+    path: content/info_main
     fields:
       - name: title
         label: Title
@@ -168,10 +168,10 @@ content:
         description: Weight determining the item's position in the list.
         type: number
     filename: "{primary}.md"
-  - name: info_location_coll
-    label: Info - Location - Collection
+  - name: info_location
+    label: Info - Location
     type: collection
-    path: content/info_location_coll
+    path: content/info_location
     fields:
       - name: title
         label: Title
@@ -188,10 +188,10 @@ content:
         description: Weight determining the item's position in the list.
         type: number
     filename: "{primary}.md"
-  - name: info_faq_coll
-    label: Info - FAQ - Collection
+  - name: info_faq
+    label: Info - FAQ
     type: collection
-    path: content/info_faq_coll
+    path: content/info_faq
     fields:
       - name: title
         label: Title
