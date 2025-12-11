@@ -6,6 +6,7 @@ import Facebook from "lucide-solid/icons/facebook";
 import Instagram from "lucide-solid/icons/instagram";
 import Youtube from "lucide-solid/icons/youtube";
 import Logo from "~/components/Logo.astro";
+import ContentImage from "~/components/ContentImage.astro";
 
 const footer = await getEntry("footer", "footer");
 
@@ -35,12 +36,12 @@ const socialIcons = [
 ];
 ---
 
-<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 pt-10 lg:grid-cols-2 text-sm tracking-widest">
+<footer transition:persist class="bg-linear-to-b to-ivory to-[calc(8*var(--spacing))] grid grid-cols-1 gap-x-16 gap-y-8 p-4 sm:p-8 pt-12 sm:pt-16 lg:grid-cols-2 text-sm">
   <div class="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-    <div class="justify-self-center">
+    <div class="justify-self-center sm:justify-self-start">
       <Logo class="h-12 block" />
     </div>
-      <div class="flex flex-wrap justify-center gap-x-2 sm:justify-start">
+      <div class="flex justify-center gap-x-4 sm:justify-start items-start">
         {
           socialIcons.map(
             (socialIcon) =>
@@ -48,7 +49,6 @@ const socialIcons = [
                 <a
                   href={socialIcon.url}
                   target="_blank"
-                  class="p-1"
                   aria-label={socialIcon.text}
                 >
                   <socialIcon.icon class="stroke-1" />
@@ -58,8 +58,8 @@ const socialIcons = [
         }
       </div>
       <div
-        class={`flex flex-col items-center gap-y-2 text-sm sm:row-span-2
-          sm:row-start-1 sm:items-start`}
+        class="flex flex-col items-center gap-y-2
+          sm:items-start"
       >
         {
           navItemsMain.map((navItem) => (
@@ -73,7 +73,7 @@ const socialIcons = [
           ))
         }
       </div>
-      <div class="flex flex-col items-center gap-y-2 text-sm sm:items-start">
+      <div class="flex flex-col items-center gap-y-2 sm:items-start">
         {
           navItemsLegal.map((secondaryNavItem) => (
             <a href={secondaryNavItem.url} class="hover:underline">
@@ -84,19 +84,23 @@ const socialIcons = [
       </div>
     </div>
     <div
-      class={`flex flex-wrap items-center justify-center gap-x-8 gap-y-4`}
+      class="flex flex-col gap-y-4 items-center lg:items-start."
         >
-        <span>Partners</span>
-    {/*
+        <span>Partners:</span>
+        <div class="flex flex-col items-center gap-x-8 lg:gap-x-16 gap-y-2 sm:flex-row flex-wrap">
+    {
         footer.data.partners.map((partner) => (
+        <a href={partner.url}>
           <ContentImage
             path={partner.image}
-            alt={partner.name}
-            class="h-18 max-w-32 object-contain lg:h-18 lg:max-w-48"
-            style="filter: brightness(0) invert(1);"
-          />
+            alt={partner.title}
+            class="h-24 max-w-48 object-contain lg:h-18. lg:max-w-48."
+            style="filter: invert(50%) sepia(50%) saturate(300%) hue-rotate(357deg) brightness(80%);"
+            />
+        </a>
         ))
-        */}
+        }
+        </div>
     </div>
     <div class="flex items-center flex-col gap-y-2 lg:col-span-2">
       <p>Copyright © {currentYear}</p>
