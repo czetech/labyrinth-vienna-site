@@ -3,7 +3,14 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <a href="/" class="font-serif text-xl hover:underline"
-    ><span class="font-bold">labyrinth</span>vienna.com</a
-  >
+  <div class="flex flex-col justify-center grow font-serif items-center gap-y-8 p-4">
+    <h1 class="text-5xl text-center">Festival Labyrinth Vienna 2026</h1>
+    <p class="text-3xl text-center">.. August 2026</p>
+    <p class="text-3xl text-center">Vienna, Austria</p>
+    <div class="flex flex-col lg:flex-row gap-x-8 gap-y-4">
+      <a href="/seminars" class="border-ivory-solid bg-ivory p-2 text-xl uppercase border rounded-lg">View semminars</a>
+      <a href="/register" class="border-ivory-solid bg-ivory p-2 text-xl uppercase border rounded-lg">Register now</a>
+      <a href="/https://maps.app.goo.gl/7UAk1QNqX8vervcD8" class="border-ivory-solid bg-ivory p-2 text-xl uppercase border rounded-lg">Navigate on map</a>
+    </div>
+  </div>
 </BaseLayout>

@@ -1,22 +1,13 @@
 ---
 import Logo from "~/components/Logo.astro";
+import { navItemsMain, navItemsLegal } from "~/lib/navigation.ts";
+import Nav from "~/components/Nav.tsx";
 ---
 
 <header
   transition:persist
-  class="m-4 mx-8 mb-8 flex items-center justify-center"
->
-  <!--<div class="uppercase tracking-wide text-lg flex gap-x-4 invisible">
-    <a>Register</a>
-    <a>Seminars</a>
-    <a>Info</a>
-    <a>About Us</a>
-  </div>-->
-  <Logo class="h-12" />
-  <!--<div class="uppercase tracking-wide text-lg flex gap-x-8">
-    <a href="/register">Register</a>
-    <a href="/seminars">Seminars</a>
-    <a href="/info">Info</a>
-    <a href="/about">About Us</a>
-  </div>-->
+  >
+  <Nav client:load navItems={navItemsMain} pathname={Astro.url.pathname}>
+    <Logo />
+  </Nav>
 </header>
