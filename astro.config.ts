@@ -12,4 +12,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  redirects: {
+    "/qr": {
+      status: 302,
+      destination: "/seminars"
+    },
+  }
 });
