@@ -8,7 +8,7 @@ We work with three registration-fee options. Choose the one that fits your situa
 For those who would need support. This doesn’t even cover our essential costs, but it gets you on board, and we hope others who can afford it will compensate.
 
 **400 € – Standard**  
-This option barely covers the costs and keeps us even. Thanks!
+This rate helps cover our essential costs. Many thanks!
 
 **500 € – Support**  
 For those who can afford to be generous. This option quietly helps someone else.
