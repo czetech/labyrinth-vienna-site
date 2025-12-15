@@ -1,10 +1,6 @@
 @import "tailwindcss";
-@import "tailwind-scrollbar-hide/v4";
 
 @theme {
-  --animate-draw: 1s 0.25s ease-in-out forwards draw;
-  --animate-spring: 2s 0.5s ease-out spring;
-
   --color-black: #323930;
   --color-black-soft: #545454;
   --color-ivory: #f8f4d9;
@@ -13,31 +9,6 @@
 
   --font-sans: "Montserrat Variable", sans-serif;
   --font-serif: "Cormorant Garamond Variable", serif;
-
-  @keyframes draw {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes spring {
-    25% {
-      transform: translateX(var(--spring-shift)) scaleX(1.01);
-      opacity: 0.95;
-    }
-    45% {
-      transform: translateX(calc(var(--spring-shift) * -0.33)) scaleX(0.995);
-      opacity: 1;
-    }
-    70% {
-      transform: translateX(calc(var(--spring-shift) * 0.15)) scaleX(1.005);
-      opacity: 0.98;
-    }
-    85% {
-      transform: translateX(calc(var(--spring-shift) * -0.05));
-      opacity: 1;
-    }
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -45,6 +16,9 @@
     stroke-dasharray: var(--path-length);
     stroke-dashoffset: calc(var(--path-length) * -1);
   }
+}
+
+.highlight {
 }
 
 .markdown {
@@ -99,22 +73,5 @@
 
   img {
     @apply my-4 h-auto max-w-full md:my-6;
-  }
-}
-
-.markdown-scrollable {
-  @apply overflow-x-auto;
-}
-
-@media print {
-  .border {
-    border-color: black !important;
-  }
-}
-
-@media print {
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
 }
