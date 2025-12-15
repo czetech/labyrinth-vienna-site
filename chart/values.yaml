@@ -30,7 +30,7 @@ http:
   annotations: {}
 
   # -- Number of _http deployment_ replicas
-  replicas: 1
+  replicas: 3
 
   # -- _http deployment_ pod annotations
   podAnnotations: {}
