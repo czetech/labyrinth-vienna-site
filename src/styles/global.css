@@ -21,14 +21,14 @@
 .hl {
   @apply relative;
   &:before {
-    @apply absolute inset-0 -z-10 bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)] content-[''] w-[calc(100%+8*var(--spacing))] -translate-x-4;
+    @apply absolute inset-0 -z-10 w-[calc(100%+8*var(--spacing))] -translate-x-4 bg-[linear-gradient(to_right,transparent,var(--color-ivory)_calc(4*var(--spacing)),var(--color-ivory)_calc(100%-4*var(--spacing)),transparent)] content-[''];
   }
 }
 
 .ul {
   @apply relative;
   &:after {
-    @apply absolute bottom-0 h-0.25 w-full content-[''] bg-ivory-solid left-0;
+    @apply bg-ivory-solid absolute bottom-0 left-0 h-0.25 w-full content-[''];
   }
 }
 

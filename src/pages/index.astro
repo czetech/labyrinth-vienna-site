@@ -3,15 +3,29 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col justify-center grow items-center gap-y-8 p-4">
-    <h1 class="text-6xl text-center font-serif">Labyrinth Vienna 2026</h1>
-    <p class="text-3xl text-center">Music Workshops</p>
-    <p class="text-3xl text-center">18<sup>th</sup> - 23<sup>rd</sup> August 2026</p>
-    <p class="text-3xl text-center">Vienna, Austria</p>
-    <div class="flex flex-col lg:flex-row gap-x-8 gap-y-4 items-center">
-      <a href="/seminars" class="border-ivory-solid bg-ivory px-4 py-2 text-xl uppercase border rounded-lg">View semminars</a>
-      <a href="/register" class="border-ivory-solid bg-ivory px-4 py-2 text-xl uppercase border rounded-lg">Register now</a>
-      <a href="https://maps.app.goo.gl/7UAk1QNqX8vervcD8" class="border-ivory-solid bg-ivory px-4 py-2 text-xl uppercase border rounded-lg">Open on map</a>
+  <div class="flex grow flex-col items-center justify-center gap-y-8 p-4">
+    <h1 class="text-center font-serif text-6xl">Labyrinth Vienna 2026</h1>
+    <p class="text-center text-3xl">Music Workshops</p>
+    <p class="text-center text-3xl">
+      18<sup>th</sup> - 23<sup>rd</sup> August 2026
+    </p>
+    <p class="text-center text-3xl">Vienna, Austria</p>
+    <div class="flex flex-col items-center gap-x-8 gap-y-4 lg:flex-row">
+      <a
+        href="/seminars"
+        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-xl
+          uppercase`}>View semminars</a
+      >
+      <a
+        href="/register"
+        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-xl
+          uppercase`}>Register now</a
+      >
+      <a
+        href="https://maps.app.goo.gl/7UAk1QNqX8vervcD8"
+        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-xl
+          uppercase`}>Open on map</a
+      >
     </div>
   </div>
 </BaseLayout>

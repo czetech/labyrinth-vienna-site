@@ -15,7 +15,7 @@ export default defineConfig({
   redirects: {
     "/qr": {
       status: 302,
-      destination: "/seminars"
+      destination: "/seminars",
     },
-  }
+  },
 });

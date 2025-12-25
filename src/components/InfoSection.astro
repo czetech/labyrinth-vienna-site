@@ -17,21 +17,31 @@ const collectionContent = await Promise.all(
 
 <div class="flex flex-col">
   <h1
-    class="mb-4 self-center font-serif text-3xl md:text-4xl lg:mb-8 text-center"
+    class="mb-4 self-center text-center font-serif text-3xl md:text-4xl lg:mb-8"
   >
     {title}
   </h1>
   <div class="flex flex-col gap-y-4">
     {
       collectionContent.map((entry) => (
-        <div class="accordion-group rounded-xl border overflow-hidden">
-          <button class="accordion-toggle bg-ivory flex justify-between px-2 py-1 w-full">
-            <h2 class="font-serif text-xl font-bold text-start">{entry.data.title}</h2>
+        <div class="accordion-group overflow-hidden rounded-xl border">
+          <button
+            class={`accordion-toggle bg-ivory flex w-full justify-between px-2
+              py-1`}
+          >
+            <h2 class="text-start font-serif text-xl font-bold">
+              {entry.data.title}
+            </h2>
             <ArrowDown class="accordion-icon duration-1000" />
           </button>
-          <div class="accordion-container invisible grid-rows-[0fr] grid duration-500">
-            <div class="accordion-content overflow-hidden opacity-0 duration-1000">
-              <div class="p-4 markdown">
+          <div
+            class={`accordion-container invisible grid grid-rows-[0fr]
+              duration-500`}
+          >
+            <div
+              class={"accordion-content overflow-hidden opacity-0 duration-1000"}
+            >
+              <div class="markdown p-4">
                 <entry.Content />
               </div>
             </div>

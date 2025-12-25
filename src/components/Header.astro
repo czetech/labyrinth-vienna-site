@@ -4,9 +4,7 @@ import { navItemsMain, navItemsLegal } from "~/lib/navigation.ts";
 import Nav from "~/components/Nav.tsx";
 ---
 
-<header
-  transition:persist
-  >
+<header transition:persist>
   <Nav client:load navItems={navItemsMain} pathname={Astro.url.pathname}>
     <Logo />
   </Nav>
