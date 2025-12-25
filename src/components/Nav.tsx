@@ -13,7 +13,7 @@ import { navigate } from "astro:transitions/client";
 
 const Nav: Component = (props) => {
   const [pathname, setPathname] = createSignal(props.pathname);
-  const [isMenuOpen, setIsMenuOpen] = createSignal(!false);
+  const [isMenuOpen, setIsMenuOpen] = createSignal(false);
 
   const handleAstroAfterSwap = () => {
     setIsMenuOpen(false);
