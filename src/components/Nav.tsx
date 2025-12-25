@@ -13,7 +13,7 @@ import { navigate } from "astro:transitions/client";
 
 const Nav: Component = (props) => {
   const [pathname, setPathname] = createSignal(props.pathname);
-  const [isMenuOpen, setIsMenuOpen] = createSignal(!false);
+  const [isMenuOpen, setIsMenuOpen] = createSignal(false);
 
   const handleAstroAfterSwap = () => {
     setIsMenuOpen(false);
@@ -45,7 +45,7 @@ const Nav: Component = (props) => {
       </div>
       <div class="top-0. h-(--height) 2xl:h-(--2xl-height) p-4 right-0 z-110 flex items-center md:hidden"
       classList={{"fixed": isMenuOpen(), "absolute": !isMenuOpen()}}>
-        <button onClick={handleMenuClick} class="w-10">
+        <button onClick={handleMenuClick} class="w-9">
             <svg
               class="[&_path]:duration-500"
               classList={{
