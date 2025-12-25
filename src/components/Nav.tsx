@@ -36,12 +36,14 @@ const Nav: Component = (props) => {
   });
 
   return (
-    <div class="min-h-18 mb-4">
-      <div class="p-4 z-110 w-full h-18 flex sm:justify-center lg:justify-start xl:justify-center"
+    <div class="min-h-(--height) 2xl:min-h-(--2xl-height) mb-8" style="--height: calc(18*var(--spacing)); --2xl-height: calc(20*var(--spacing));">
+      <div class="z-110 w-full h-(--height) 2xl:h-(--2xl-height) flex justify-center items-center"
       classList={{"fixed": isMenuOpen(), "absolute": !isMenuOpen()}}>
+        <div class="h-[calc(100%-8*var(--spacing))]">
           {props.children}
+        </div>
       </div>
-      <div class="top-0 h-18 p-4 right-0 z-110 flex items-center sm:hidden"
+      <div class="top-0. h-(--height) 2xl:h-(--2xl-height) p-4 right-0 z-110 flex items-center sm:hidden"
       classList={{"fixed": isMenuOpen(), "absolute": !isMenuOpen()}}>
         <button onClick={handleMenuClick} class="w-8">
             <svg
@@ -59,7 +61,7 @@ const Nav: Component = (props) => {
             </svg>
         </button>
       </div>
-      <div class="z-100 sm:z-110 fixed inset-0 bg-ivory-soft flex flex-col justify-center items-center uppercase gap-x-6 gap-y-4 tracking-wide text-lg pt-18 duration-500 sm:static sm:opacity-100 sm:visible sm:flex-row sm:pb-4 lg:absolute lg:inset-auto lg:right-0 lg:pt-4 px-4 lg:min-h-18"
+      <div class="z-100 sm:z-110 fixed inset-0 flex flex-col bg-ivory-soft justify-center items-center uppercase gap-x-6 gap-y-4 tracking-wide text-lg pt-(--height) duration-500 sm:static sm:opacity-100 sm:visible sm:flex-row 2xl:absolute 2xl:inset-auto 2xl:right-0 2xl:pt-0 min-h-(--height) 2xl:min-h-(--2xl-height) px-6"
       classList={{
           "invisible opacity-0": !isMenuOpen(),
         }}>
@@ -73,8 +75,10 @@ const Nav: Component = (props) => {
             return (
               <a
                 href={navItem.href}
+                class="ul p-1 after:duration-1000"
                 classList={{
-                  "font-semibold": isActive(),
+                  "after:opacity-0": !isActive(),
+                  "after:opacity-100": isActive(),
                 }}
               >
                 {navItem.title}
