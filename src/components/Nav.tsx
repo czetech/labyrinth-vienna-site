@@ -43,7 +43,7 @@ const Nav: Component = (props) => {
           {props.children}
         </div>
       </div>
-      <div class="top-0. h-(--height) 2xl:h-(--2xl-height) p-4 right-0 z-110 flex items-center md:hidden"
+      <div class="h-(--height) 2xl:h-(--2xl-height) right-4 z-110 flex flex-col justify-center md:hidden"
       classList={{"fixed": isMenuOpen(), "absolute": !isMenuOpen()}}>
         <button onClick={handleMenuClick} class="w-9">
             <svg
@@ -61,7 +61,7 @@ const Nav: Component = (props) => {
             </svg>
         </button>
       </div>
-      <div class="z-100 md:z-110 fixed inset-0 flex flex-col bg-ivory-soft justify-center items-center uppercase gap-x-6 gap-y-4 tracking-wide text-xl pt-(--height) duration-500 md:static md:opacity-100 md:visible md:flex-row 2xl:absolute 2xl:inset-auto 2xl:right-0 2xl:pt-0 min-h-(--height) 2xl:min-h-(--2xl-height) px-6"
+      <div class="z-100 md:z-110 fixed inset-0 flex flex-col bg-ivory-soft justify-center items-center uppercase gap-x-6 gap-y-4 tracking-wide text-lg pt-(--height) duration-500 md:static md:opacity-100 md:visible md:flex-row 2xl:absolute 2xl:inset-auto 2xl:right-0 2xl:pt-0 min-h-(--height) 2xl:min-h-(--2xl-height) px-6"
       classList={{
           "invisible opacity-0": !isMenuOpen(),
         }}>
