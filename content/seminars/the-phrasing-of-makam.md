@@ -11,9 +11,9 @@ This course with **Ross Daly** focuses on the study of modal music through phras
     
 *   Western theory: any level
     
-*   Modal music theory: basic
+*   Modal music theory: any level
     
-*   Sight reading: intermediate
+*   Sight reading: basic
     
 *   Transposition: any level
     
