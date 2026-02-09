@@ -11,9 +11,9 @@ In this seminar **Mayu Shviro** leads participants through the sound, techniques
     
 *   Western theory: any level
     
-*   Modal music theory: basic
+*   Modal music theory: any level
     
-*   Sight reading: intermediate
+*   Sight reading: basic
     
 *   Transposition: any level
     
