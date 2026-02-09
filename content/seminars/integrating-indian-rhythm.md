@@ -12,9 +12,7 @@ This workshop with **Bernhard Schimpelsberger** looks at practical ways of integ
     
 *   Western theory: any level
     
-*   Modal music theory: basic
-    
-*   Sight reading: intermediate
+*   Sight reading: basic
     
 *   Transposition: any level
     
