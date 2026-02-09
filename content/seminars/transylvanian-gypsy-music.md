@@ -11,9 +11,7 @@ This course with **Tcha Limberger** focuses on the musical language of Transylva
     
 *   Western theory: any level
     
-*   Modal music theory: basic
-    
-*   Sight reading: intermediate
+*   Sight reading: basic
     
 *   Transposition: any level
     
