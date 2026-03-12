@@ -3,6 +3,7 @@ mainTitle: Modal music for bowed instruments
 teacher: mayu-shviro.yaml
 weight: 300
 ---
+18th - 23rd August 2026  
 In this seminar **Mayu Shviro** leads participants through the sound, techniques and ornaments typical of modal music traditions. Working on bowed instruments such as cello, violin or viola (but also others like kemençe or kamanche, for those familiar), the class focuses on learning repertoire from different modal traditions, group playing, and improvisation in a modal context. The goal is to open up new sound worlds and ways of musical interaction beyond the classical-Western framework.
 
 **Student requirements**
