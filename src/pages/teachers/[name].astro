@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { YouTube } from "@astro-community/astro-embed-youtube";
 import { getCollection, getEntry } from "astro:content";
 import path from "pathe";
 import ContentImage from "~/components/ContentImage.astro";
 import Markdown from "~/components/Markdown.astro";
 
 const { teacher } = Astro.props;
+const videos = teacher.data.videos ?? [];
 
 export const getStaticPaths = async () => {
   return (await getCollection("teachers")).map((teacher) => ({
@@ -24,11 +26,18 @@ export const getStaticPaths = async () => {
       path={teacher.data.image}
       class="mb-3 max-h-[50dvh] w-full object-cover md:max-w-72 md:rounded-2xl"
     />
-    <article class="mx-8 max-w-144 font-serif font-medium md:mx-0">
+    <article class="mx-8 mb-8 max-w-144 font-serif font-medium md:mx-0">
       <h1 class="mb-4 text-4xl">{teacher.data.name}</h1>
       <div class="text-justify text-lg tracking-wide">
         <Markdown content={teacher.data.description} />
       </div>
+      {videos.length > 0 && (
+        <div class="mt-8 flex flex-col gap-4">
+          {videos.map((video: { title: string; id: string }) => (
+            <YouTube id={video.id} title={video.title} />
+          ))}
+        </div>
+      )}
     </article>
   </div>
 </BaseLayout>

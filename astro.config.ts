@@ -1,4 +1,5 @@
 import solidJs from "@astrojs/solid-js";
+import solidSvg from 'vite-plugin-solid-svg'
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
@@ -10,7 +11,7 @@ export default defineConfig({
   trailingSlash: "never",
   integrations: [solidJs()],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [solidSvg(), tailwindcss()],
   },
   redirects: {
     "/qr": {

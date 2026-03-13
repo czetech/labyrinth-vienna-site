@@ -10,6 +10,7 @@ export const navItemsMain = [
   {
     title: global.data.navItemSeminars,
     href: "/seminars",
+    test: "^\/(?:seminars|teachers)(?:\/.*)?$",
   },
   {
     title: global.data.navItemInfo,

@@ -10,6 +10,7 @@ import {
 import { makeEventListener } from "@solid-primitives/event-listener";
 import { createPresence } from "@solid-primitives/presence";
 import { navigate } from "astro:transitions/client";
+import Logo from "~/components/Logo.tsx";
 
 const Nav: Component = (props) => {
   const [pathname, setPathname] = createSignal(props.pathname);
@@ -37,19 +38,19 @@ const Nav: Component = (props) => {
 
   return (
     <div
-      class="mb-8 min-h-(--height) lg:min-h-(--lg-height)"
-      style="--height: calc(18*var(--spacing)); --lg-height: calc(20*var(--spacing));"
+      class="mb-4 2xl:mb-6 min-h-(--height) md:min-h-(--md-height)"
+      style="--height: calc(18*var(--spacing)); --md-height: calc(20*var(--spacing));"
     >
       <div
         class={`z-110 flex h-(--height) w-full items-center justify-center
-          lg:h-(--lg-height)`}
+          md:h-(--md-height) py-4`}
         classList={{ fixed: isMenuOpen(), absolute: !isMenuOpen() }}
       >
-        <div class="h-[calc(100%-8*var(--spacing))]">{props.children}</div>
+        <Logo class="h-full" />
       </div>
       <div
         class={`right-4 z-110 flex h-(--height) flex-col justify-center
-          md:hidden lg:h-(--lg-height)`}
+          md:hidden md:h-(--md-height)`}
         classList={{ fixed: isMenuOpen(), absolute: !isMenuOpen() }}
       >
         <button onClick={handleMenuClick} class="w-9">
@@ -72,8 +73,8 @@ const Nav: Component = (props) => {
         class={`bg-ivory-soft fixed inset-0 z-100 flex flex-col
           items-center justify-center gap-x-6 gap-y-4 px-4 pt-(--height) text-lg
           tracking-wide uppercase duration-500 md:visible md:static md:z-110 md:px-8 md:inset-auto
-          md:flex-row md:opacity-100 lg:pt-(--lg-height) 2xl:px-0 2xl:h-(--lg-height)
-          2xl:absolute 2xl:right-6 2xl:pt-0`}
+          md:flex-row md:opacity-100 md:pt-(--md-height) 2xl:px-0 2xl:h-(--md-height)
+          2xl:absolute 2xl:right-6 2xl:pt-4 pb-4`}
         classList={{
           "invisible opacity-0": !isMenuOpen(),
         }}

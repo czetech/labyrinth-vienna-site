@@ -17,9 +17,9 @@ const infoFaq = (await getCollection("infoFaq")).sort(
 
 <BaseLayout>
   <div class="flex w-full max-w-144 flex-col gap-y-8 px-4 pb-8">
-    <InfoSection title={info.data.mainTitle} collection={infoMain} />
-    <InfoSection title={info.data.locationTitle} collection={infoLocation} />
-    <InfoSection title={info.data.faqTitle} collection={infoFaq} />
+    <InfoSection id="main" title={info.data.mainTitle} collection={infoMain} />
+    <InfoSection id="location" title={info.data.locationTitle} collection={infoLocation} />
+    <InfoSection id="faq" title={info.data.faqTitle} collection={infoFaq} />
     <p>{info.data.bottomLine}</p>
   </div>
 </BaseLayout>
