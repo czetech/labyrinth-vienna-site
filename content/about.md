@@ -1,7 +1,9 @@
 ---
 title: About Us
 ---
-We are starting the Labyrinth workshops in Vienna, in the Hietzing area of the city, where the Alps begin. In the summer heat of August, participants can spend a full week at the Bildungszentrum, a center with spacious green gardens and all the facilities needed for music workshops, including a concert hall.
+We are starting the Labyrinth workshops in Vienna, in the Hietzing area of the city, where the Alps begin. In the summer heat of August, participants can spend a full week at the Bildungszentrum, a center with spacious green gardens and all the facilities needed for music workshops, including a concert hall.  
+  
+We come from the Labyrinth tradition — a community of musicians and music lovers gathering since 1982, first on Crete in Greece, and later spreading across Europe and the world. The idea has always been simple: offer high-quality but affordable courses, spend a week together, learn from extraordinary teachers, cook, eat, and play music late into the night around the fire. This August, we’re bringing that spirit to Vienna for the very first time.
 
 You will spend the week together with teachers and fellow students, with the option to stay directly at the center or in comfortable, affordable accommodation within a 10-minute walk. The location is also just 5 minutes away from the U4 metro line. Fresh, daily cooked meals are shared with students and teachers, creating a communal and focused atmosphere throughout the week in one of the coziest and calmest corners of Vienna.
 
