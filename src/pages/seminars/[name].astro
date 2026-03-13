@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { getCollection, getEntry, render } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import path from "pathe";
 import ContentImage from "~/components/ContentImage.astro";
-import Markdown from "~/components/Markdown.astro";
+import SeminarTabs from "~/components/SeminarTabs.tsx";
+import { renderMarkdown } from "~/lib/markdown.ts";
 
 const { seminar } = Astro.props;
 
@@ -12,7 +13,27 @@ const teacher = await getEntry(
   path.basename(seminar.data.teacher, ".yaml"),
 );
 
-const { Content } = await render(seminar);
+const videos: { title: string; id: string }[] = teacher.data.videos ?? [];
+
+// Render seminar markdown body to HTML
+const seminarHtml = await renderMarkdown(seminar.body ?? "");
+
+// Build teacher HTML: description + YouTube embeds
+let teacherHtml = await renderMarkdown(teacher.data.description ?? "");
+
+if (videos.length > 0) {
+  const videoEmbeds = videos
+    .map((video) => {
+      const match = video.id.match(
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9-_]{11})/,
+      );
+      const videoId = match?.[1];
+      if (!videoId) return "";
+      return `<div class="mt-6"><iframe src="https://www.youtube-nocookie.com/embed/${videoId}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;border-radius:0.5rem"></iframe></div>`;
+    })
+    .join("");
+  teacherHtml += videoEmbeds;
+}
 
 export const getStaticPaths = async () => {
   return (await getCollection("seminars")).map((seminar) => ({
@@ -35,17 +56,16 @@ export const getStaticPaths = async () => {
           <span>{seminar.data.additionalTitle}</span>
         </h1>
         <span class="md:text-lg">with</span>
-        <a
-          href={path.join("/teachers", teacher.id)}
-          class="font-serif text-lg font-bold underline md:text-2xl"
-          >{teacher.data.name}</a
-        >
+        <span class="font-serif text-lg font-bold md:text-2xl">
+          {teacher.data.name}
+        </span>
+        <span class="md:text-lg">18th - 23rd August 2026</span>
       </div>
     </div>
-    <div
-      class="markdown text-justify font-serif text-lg font-medium tracking-wide"
-    >
-      <Content content={seminar} />
-    </div>
+    <SeminarTabs
+      client:load
+      seminarHtml={seminarHtml}
+      teacherHtml={teacherHtml}
+    />
   </article>
 </BaseLayout>
