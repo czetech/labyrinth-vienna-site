@@ -1,32 +1,144 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import path from "pathe";
+import ContentImage from "~/components/ContentImage.astro";
+
+const seminars = (await getCollection("seminars")).sort(
+  (a, b) => b.data.weight - a.data.weight,
+);
+
+const seminarsTeachers = await Promise.all(
+  seminars.map(async (seminar) => {
+    const teacher = await getEntry(
+      "teachers",
+      path.basename(seminar.data.teacher, ".yaml"),
+    );
+    return { seminar, teacher };
+  }),
+);
+
+// Pick 4 featured teachers for the preview strip
+const featured = seminarsTeachers.slice(0, 6);
 ---
 
 <BaseLayout>
-  <div class="flex grow flex-col items-center justify-center gap-y-8 p-4">
-    <p class="text-center font-serif text-2xl mb-16">Join the first Labyrinth Vienna edition: a week of shared music with leading masters of diverse traditions</p>
-    <h1 class="text-center font-serif text-5xl">Labyrinth Vienna 2026</h1>
-    <p class="text-center text-2xl">Music Workshops</p>
-    <p class="text-center text-2xl">
+  <!-- Hero Section -->
+  <section class="flex w-full max-w-4xl flex-col items-center px-4 pt-12 pb-8 md:pt-20 md:pb-12">
+    <p class="mb-6 text-center font-serif text-xl italic leading-relaxed tracking-wide text-black-soft md:text-2xl lg:text-3xl">
+      Where musical traditions meet, new paths begin.
+    </p>
+    <h1 class="mb-4 text-center font-serif text-4xl md:text-5xl lg:text-6xl">
+      Labyrinth Vienna 2026
+    </h1>
+    <p class="mb-2 text-center text-lg md:text-xl">Music Workshops</p>
+    <p class="mb-2 text-center text-lg md:text-xl">
       18<sup>th</sup> - 23<sup>rd</sup> August 2026
     </p>
-    <p class="text-center text-2xl">Vienna, Austria</p>
-    <div class="flex flex-col items-center gap-x-8 gap-y-4 lg:flex-row">
-      <a
-        href="/seminars"
-        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-lg
-          uppercase`}>View seminars</a
-      >
+    <p class="mb-8 text-center text-lg md:text-xl">Vienna, Austria</p>
+    <div class="flex flex-col items-center gap-x-6 gap-y-3 sm:flex-row">
       <a
         href="/register"
-        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-lg
-          uppercase`}>Register now</a
-      >
+        class="border-ivory-solid bg-ivory rounded-lg border-2 px-6 py-2.5 text-lg font-medium uppercase tracking-wide">
+        Register now
+      </a>
+      <a
+        href="/seminars"
+        class="border-ivory-solid rounded-lg border px-5 py-2 text-lg uppercase tracking-wide">
+        View seminars
+      </a>
+    </div>
+  </section>
+
+  <!-- Teacher Preview Strip -->
+  <section class="w-full max-w-7xl px-4 py-8 md:py-12">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-6 md:gap-6">
+      {featured.map(({ seminar, teacher }) => (
+        <a
+          href={path.join("/seminars", seminar.id)}
+          class="group flex flex-col items-center text-center"
+        >
+          <div class="mb-3 w-28 overflow-hidden rounded-lg duration-500 group-hover:scale-105 md:w-36">
+            <ContentImage
+              path={teacher.data.image}
+              class="aspect-square object-cover"
+            />
+          </div>
+          <p class="font-serif text-lg font-medium md:text-xl">{teacher.data.name}</p>
+          <p class="text-sm uppercase tracking-wide text-black-soft md:text-xs">
+            {seminar.data.mainTitle}
+          </p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- About Blurb -->
+  <section class="w-full max-w-3xl px-6 py-8 md:py-12">
+    <div class="bg-ivory mx-auto rounded-xl px-6 py-8 md:px-10 md:py-10">
+      <h2 class="mb-4 text-center font-serif text-2xl md:text-3xl">The first Vienna edition</h2>
+      <p class="text-center font-serif text-lg leading-relaxed md:text-xl">
+        A week of shared music in the green gardens of Vienna. World-class masters
+        of modal, Indian, Eastern European, and Central Asian traditions come together
+        at <span class="hl">Bildungszentrum an der Wien</span> for intimate workshops
+        where students and teachers learn side by side &mdash; with communal meals,
+        concerts, and the quiet corners of Hietzing, where the Alps begin.
+      </p>
+      <p class="mt-4 text-center">
+        <a href="/about" class="text-black-soft font-medium underline underline-offset-4 hover:text-black">
+          Read more about us
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- At-a-Glance Facts -->
+  <section class="w-full max-w-4xl px-4 py-8 md:py-12">
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
+      <div class="flex flex-col items-center text-center">
+        <p class="font-serif text-3xl md:text-4xl">6</p>
+        <p class="text-sm uppercase tracking-wide text-black-soft">Seminars</p>
+        <p class="mt-1 text-xs text-black-soft">across diverse traditions</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <p class="font-serif text-3xl md:text-4xl">6</p>
+        <p class="text-sm uppercase tracking-wide text-black-soft">Days</p>
+        <p class="mt-1 text-xs text-black-soft">of immersive workshops</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <p class="font-serif text-3xl md:text-4xl">350&thinsp;&euro;</p>
+        <p class="text-sm uppercase tracking-wide text-black-soft">From</p>
+        <p class="mt-1 text-xs text-black-soft">accessible solidarity pricing</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <p class="font-serif text-3xl md:text-4xl">&infin;</p>
+        <p class="text-sm uppercase tracking-wide text-black-soft">Community</p>
+        <p class="mt-1 text-xs text-black-soft">meals &amp; music together</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full max-w-3xl px-4 pt-4 pb-16 text-center md:pb-20">
+    <p class="mb-6 font-serif text-xl italic text-black-soft md:text-2xl">
+      Join us this August in Vienna.
+    </p>
+    <div class="flex flex-col items-center justify-center gap-x-6 gap-y-3 sm:flex-row">
+      <a
+        href="/register"
+        class="border-ivory-solid bg-ivory rounded-lg border-2 px-6 py-2.5 text-lg font-medium uppercase tracking-wide">
+        Register now
+      </a>
+      <a
+        href="/seminars"
+        class="border-ivory-solid rounded-lg border px-5 py-2 text-lg uppercase tracking-wide">
+        View seminars
+      </a>
       <a
         href="https://maps.app.goo.gl/7UAk1QNqX8vervcD8"
-        class={`border-ivory-solid bg-ivory rounded-lg border px-4 py-2 text-lg
-          uppercase`}>Open on map</a
-      >
+        class="text-sm text-black-soft underline underline-offset-4 hover:text-black">
+        Open on map
+      </a>
     </div>
-  </div>
+  </section>
 </BaseLayout>
