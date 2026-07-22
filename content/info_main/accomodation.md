@@ -2,10 +2,17 @@
 title: Accomodation
 weight: 200
 ---
-You may arrange your own accommodation, or we can host you in a room at [<u>Bundesinternat Wien am Himmelhof</u>](https://himmelhof-wien.at/),  a boarding school and internat located just 10 minutes’ walking distance from the [**Bildungszentrum**](https://bildungszentrum-an-der-wien.at/), where the workshops take place. This area is beautiful, surrounded by large gardens and close to the foothills of the Alps.
+You are welcome to arrange your own accommodation or stay directly at the **Bildungszentrum**, where the workshops, meals, concerts, and evening gatherings all take place.
 
-The cost is **35 € for a double room** and **45 € for a private room**. All rooms include a private bathroom and toilet.
+We offer a limited number of **double rooms** and **shared rooms (3–6 people)**. The center has **three indoor showers, one outdoor shower**, and is surrounded by beautiful gardens.
 
-Alternatively, we may have a limited number of large shared rooms available at the kindergarten directly next to the Bildungszentrum and the workshop locations. These rooms can accommodate up to 15 students in total, with **5 people per room**, shared facilities, and a cost of **15 € per person per night**. For this option, you will need to bring your own sleeping bag.
+**Rates:**
 
-If you select any of these options, we will contact you to help find the most suitable arrangement.
+*   **Double room:** €28 per person/night
+    
+*   **Shared room:** €18 per person/night
+    
+*   **Camping:** €10 per person/night (bring your own tent)
+    
+
+**If you require accommodation, please contact us and we will help you find the most suitable option.**
